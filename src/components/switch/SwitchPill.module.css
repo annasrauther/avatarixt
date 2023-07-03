@@ -1,0 +1,35 @@
+/* SwitchPill.module.css */
+
+.slider {
+  position: relative;
+  display: inline-block;
+  width: 40px;
+  height: 20px;
+  background-color: gray;
+  border-radius: 20px;
+  transition: background-color 0.3s;
+}
+
+.slider:before {
+  position: absolute;
+  content: '';
+  height: 16px;
+  width: 16px;
+  left: 2px;
+  bottom: 2px;
+  background-color: white;
+  border-radius: 50%;
+  transition: transform 0.3s;
+}
+
+.switchPillInput[type='checkbox'] {
+  display: none;
+}
+
+.switchPillInput[type='checkbox']:checked+.slider {
+  background-color: #2196f3;
+}
+
+.switchPillInput[type='checkbox']:checked+.slider:before {
+  transform: translateX(20px);
+}
