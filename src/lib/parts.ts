@@ -6,10 +6,10 @@ interface partMapProps {
     component: string;
     options: {
       id: string;
-      label: string;
+      label?: string;
       value: string | boolean;
+      hex?: string;
     }[];
-    dependsOn?: string;
   };
 }
 
