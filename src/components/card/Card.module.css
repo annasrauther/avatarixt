@@ -1,9 +1,6 @@
 .container {
   display: flex;
   overflow-x: scroll;
-  scroll-snap-type: x mandatory;
-  -webkit-overflow-scrolling: touch;
-  -ms-overflow-style: none;
   scrollbar-width: none;
 }
 
@@ -16,7 +13,7 @@
   display: flex;
   flex-direction: column;
   align-items: center;
-  margin-right: 10px;
+  margin: 5px;
   cursor: pointer;
   border: none;
   scroll-snap-align: start;
@@ -27,20 +24,20 @@
   height: 60px;
   padding: 10px;
   border-radius: 5px;
+  background: white;
   border: 1px solid #dbdbdb;
+  box-shadow: 0 0 5px rgba(0, 0, 0, 0.3);
+  border: 2px solid transparent;
   transition: all 0.3s;
 }
 
 .card:hover img,
 .card img.active {
-  border: 1px solid #0057ff;
-}
-
-.card:hover img {
-  transform: scale(0.9);
+  border: 2px solid black;
 }
 
 .card span {
   margin-top: 5px;
-  font-size: 12px;
+  font-size: 0.7em;
+  transition: all 0.3s;
 }

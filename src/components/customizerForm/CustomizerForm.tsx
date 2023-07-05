@@ -36,6 +36,7 @@ const CustomizerForm = ({ partMap }: ICustomizerFormProps) => {
             <div className={styles.colorPickerContainer}>
               <ColorPicker
                 partKey={partKey}
+                label={label}
                 value={selectedOptions[partKey]}
                 colors={options}
                 onChange={(newValue: string) => updateOption(partKey, newValue)}

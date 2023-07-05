@@ -32,6 +32,12 @@ const Preview = () => {
 
   return (
     <div className={styles.previewContainer}>
+      <button style={{
+        left: 0,
+      }} className={styles.button}>Random</button>
+      <button style={{
+        right: 0,
+      }} className={styles.button}>Download</button>
       <BigHead
         accessory={accessory}
         body={body}

@@ -19,32 +19,34 @@ const CardComponent: React.FC<ICardProps> = ({ partKey, options }) => {
     handleOptionChange(partKey, option);
   };
 
-  const optionValues = options.map((option) => option.value); // Extract the 'value' from each object
-
   return (
-    <div className={styles.container}>
-      {optionValues.map((option) => (
-        <div
-          key={option}
-          className={styles.card}
-          onClick={() => handleCardChange(option)}
-        >
-          <Image
-            // src={`/img/${option}.svg`}
-            src="/vercel.svg"
-            alt={option}
-            width={100}
-            height={100}
-            placeholder="blur"
-            className={value === option ? styles.active : ''}
-            blurDataURL="data:image/svg+xml;base64,..."
-          />
-          <span style={{
-            fontWeight: value === option ? '600' : '400',
-          }}>{option.toLocaleUpperCase()}</span>
-        </div>
-      ))}
-    </div>
+    <>
+      <div className={styles.container}>
+
+        {options.map((option) => (
+          <div
+            key={option.id}
+            className={styles.card}
+            onClick={() => handleCardChange(option.value)}
+          >
+            <Image
+              // src={`/img/${option}.svg`}
+              src="/vercel.svg"
+              alt={option.label}
+              width={100}
+              height={100}
+              placeholder="blur"
+              className={value === option.value ? styles.active : ''}
+              blurDataURL="data:image/svg+xml;base64,..."
+            />
+            <span style={{
+              fontWeight: value === option.value ? '800' : '300',
+
+            }}>{option.label.toLocaleUpperCase()}</span>
+          </div>
+        ))}
+      </div>
+    </>
   );
 };
 
