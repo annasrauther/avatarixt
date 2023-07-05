@@ -9,6 +9,7 @@ interface partMapProps {
       label: string;
       value: string | boolean;
     }[];
+    dependsOn?: string;
   };
 }
 
@@ -21,39 +22,13 @@ const partMap: partMapProps = {
       { id: 'mask-false', label: 'False', value: false },
     ],
   },
-  faceMask: {
-    label: 'Face Mask',
-    component: 'switch',
-    options: [
-      { id: 'faceMask-true', label: 'True', value: true },
-      { id: 'faceMask-false', label: 'False', value: false },
-    ],
-  },
-  faceMaskColor: {
-    label: 'Face Mask Color',
-    component: 'color',
-    options: color.clothing.map((colorOption, index) => ({
-      id: `faceMaskColor-${index}`,
-      label: colorOption,
-      value: colorOption,
-    })),
-  },
   body: {
     label: 'Body',
     component: 'card',
     options: [
-      { id: 'body-chest', label: 'Chest', value: 'chest' },
-      { id: 'body-breasts', label: 'Breasts', value: 'breasts' },
+      { id: 'body-chest', label: 'Male', value: 'chest' },
+      { id: 'body-breasts', label: 'Female', value: 'breasts' },
     ],
-  },
-  lipColor: {
-    label: 'Lip Color',
-    component: 'color',
-    options: color.lipColors.map((lipColorOption, index) => ({
-      id: `lipColor-${index}`,
-      label: lipColorOption,
-      value: lipColorOption,
-    })),
   },
   skinTone: {
     label: 'Skin Tone',
@@ -62,30 +37,6 @@ const partMap: partMapProps = {
       id: `skinTone-${index}`,
       label: skinColorOption,
       value: skinColorOption,
-    })),
-  },
-  hair: {
-    label: 'Hair',
-    component: 'card',
-    options: [
-      { id: 'hair-none', label: 'None', value: 'none' },
-      { id: 'hair-long', label: 'Long', value: 'long' },
-      { id: 'hair-bun', label: 'Bun', value: 'bun' },
-      { id: 'hair-short', label: 'Short', value: 'short' },
-      { id: 'hair-pixie', label: 'Pixie', value: 'pixie' },
-      { id: 'hair-balding', label: 'Balding', value: 'balding' },
-      { id: 'hair-buzz', label: 'Buzz', value: 'buzz' },
-      { id: 'hair-afro', label: 'Afro', value: 'afro' },
-      { id: 'hair-bob', label: 'Bob', value: 'bob' },
-    ],
-  },
-  hairColor: {
-    label: 'Hair Color',
-    component: 'color',
-    options: color.hair.map((hairColorOption, index) => ({
-      id: `hairColor-${index}`,
-      label: hairColorOption,
-      value: hairColorOption,
     })),
   },
   clothing: {
@@ -119,6 +70,51 @@ const partMap: partMapProps = {
       { id: 'graphic-vue', label: 'Vue', value: 'vue' },
       { id: 'graphic-react', label: 'React', value: 'react' },
       { id: 'graphic-graphQL', label: 'GraphQL', value: 'graphQL' },
+    ],
+  },
+  hair: {
+    label: 'Hair',
+    component: 'card',
+    options: [
+      { id: 'hair-none', label: 'None', value: 'none' },
+      { id: 'hair-long', label: 'Long', value: 'long' },
+      { id: 'hair-bun', label: 'Bun', value: 'bun' },
+      { id: 'hair-short', label: 'Short', value: 'short' },
+      { id: 'hair-pixie', label: 'Pixie', value: 'pixie' },
+      { id: 'hair-balding', label: 'Balding', value: 'balding' },
+      { id: 'hair-buzz', label: 'Buzz', value: 'buzz' },
+      { id: 'hair-afro', label: 'Afro', value: 'afro' },
+      { id: 'hair-bob', label: 'Bob', value: 'bob' },
+    ],
+  },
+  hairColor: {
+    label: 'Hair Color',
+    component: 'color',
+    options: color.hair.map((hairColorOption, index) => ({
+      id: `hairColor-${index}`,
+      label: hairColorOption,
+      value: hairColorOption,
+    })),
+  },
+  facialHair: {
+    label: 'Facial Hair',
+    component: 'card',
+    options: [
+      { id: 'facialHair-none', label: 'None', value: 'none' },
+      { id: 'facialHair-stubble', label: 'Stubble', value: 'stubble' },
+      {
+        id: 'facialHair-mediumBeard',
+        label: 'Medium Beard',
+        value: 'mediumBeard',
+      },
+    ],
+  },
+  lashes: {
+    label: 'Lashes',
+    component: 'switch',
+    options: [
+      { id: 'lashes-true', label: 'True', value: true },
+      { id: 'lashes-false', label: 'False', value: false },
     ],
   },
   eyes: {
@@ -164,18 +160,32 @@ const partMap: partMapProps = {
       { id: 'mouth-tongue', label: 'Tongue', value: 'tongue' },
     ],
   },
-  facialHair: {
-    label: 'Facial Hair',
-    component: 'card',
+  lipColor: {
+    label: 'Lip Color',
+    component: 'color',
+    options: color.lipColors.map((lipColorOption, index) => ({
+      id: `lipColor-${index}`,
+      label: lipColorOption,
+      value: lipColorOption,
+    })),
+  },
+  faceMask: {
+    label: 'Face Mask',
+    component: 'switch',
     options: [
-      { id: 'facialHair-none', label: 'None', value: 'none' },
-      { id: 'facialHair-stubble', label: 'Stubble', value: 'stubble' },
-      {
-        id: 'facialHair-mediumBeard',
-        label: 'Medium Beard',
-        value: 'mediumBeard',
-      },
+      { id: 'faceMask-true', label: 'True', value: true },
+      { id: 'faceMask-false', label: 'False', value: false },
     ],
+  },
+  faceMaskColor: {
+    label: 'Face Mask Color',
+    component: 'color',
+    options: color.clothing.map((colorOption, index) => ({
+      id: `faceMaskColor-${index}`,
+      label: colorOption,
+      value: colorOption,
+    })),
+    dependsOn: 'faceMask',
   },
   accessory: {
     label: 'Accessory',
@@ -212,14 +222,6 @@ const partMap: partMapProps = {
       label: hatColorOption,
       value: hatColorOption,
     })),
-  },
-  lashes: {
-    label: 'Lashes',
-    component: 'switch',
-    options: [
-      { id: 'lashes-true', label: 'True', value: true },
-      { id: 'lashes-false', label: 'False', value: false },
-    ],
   },
 };
 
