@@ -165,7 +165,6 @@ const partMap: partMapProps = {
     label: 'Face Mask Color',
     component: 'color',
     options: color.clothing,
-    dependsOn: 'faceMask',
   },
   accessory: {
     label: 'Accessory',
