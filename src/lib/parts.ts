@@ -33,11 +33,7 @@ const partMap: partMapProps = {
   skinTone: {
     label: 'Skin Tone',
     component: 'color',
-    options: color.skin.map((skinColorOption, index) => ({
-      id: `skinTone-${index}`,
-      label: skinColorOption,
-      value: skinColorOption,
-    })),
+    options: color.skin,
   },
   clothing: {
     label: 'Clothing',
@@ -54,11 +50,7 @@ const partMap: partMapProps = {
   clothingColor: {
     label: 'Clothing Color',
     component: 'color',
-    options: color.clothing.map((clothingColorOption, index) => ({
-      id: `clothingColor-${index}`,
-      label: clothingColorOption,
-      value: clothingColorOption,
-    })),
+    options: color.clothing,
   },
   graphic: {
     label: 'Graphic',
@@ -90,11 +82,7 @@ const partMap: partMapProps = {
   hairColor: {
     label: 'Hair Color',
     component: 'color',
-    options: color.hair.map((hairColorOption, index) => ({
-      id: `hairColor-${index}`,
-      label: hairColorOption,
-      value: hairColorOption,
-    })),
+    options: color.hair,
   },
   facialHair: {
     label: 'Facial Hair',
@@ -163,11 +151,7 @@ const partMap: partMapProps = {
   lipColor: {
     label: 'Lip Color',
     component: 'color',
-    options: color.lipColors.map((lipColorOption, index) => ({
-      id: `lipColor-${index}`,
-      label: lipColorOption,
-      value: lipColorOption,
-    })),
+    options: color.lipColors,
   },
   faceMask: {
     label: 'Face Mask',
@@ -180,11 +164,7 @@ const partMap: partMapProps = {
   faceMaskColor: {
     label: 'Face Mask Color',
     component: 'color',
-    options: color.clothing.map((colorOption, index) => ({
-      id: `faceMaskColor-${index}`,
-      label: colorOption,
-      value: colorOption,
-    })),
+    options: color.clothing,
     dependsOn: 'faceMask',
   },
   accessory: {
@@ -217,11 +197,7 @@ const partMap: partMapProps = {
   hatColor: {
     label: 'Hat Color',
     component: 'color',
-    options: color.clothing.map((hatColorOption, index) => ({
-      id: `hatColor-${index}`,
-      label: hatColorOption,
-      value: hatColorOption,
-    })),
+    options: color.clothing,
   },
 };
 
