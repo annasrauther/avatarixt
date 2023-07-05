@@ -32,7 +32,6 @@ const Preview = () => {
 
   return (
     <div className={styles.previewContainer}>
-      <h2>Preview</h2>
       <BigHead
         accessory={accessory}
         body={body}
@@ -56,6 +55,7 @@ const Preview = () => {
         skinTone={skinTone}
       />
     </div>
+
   );
 };
 
