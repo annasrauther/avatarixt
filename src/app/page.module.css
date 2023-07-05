@@ -1,0 +1,15 @@
+.grid {
+  @media screen and (min-width: 600px) {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+  }
+}
+
+.logo {
+  margin: 0;
+  padding: 10px 0;
+  font-size: 2rem;
+  font-weight: 400;
+  text-align: center;
+  border-bottom: 1px solid #eeeeee;
+}

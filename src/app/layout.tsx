@@ -1,9 +1,9 @@
 import './globals.css';
 import 'normalize.css';
 
-import { Inter } from 'next/font/google';
+import { Montserrat } from 'next/font/google';
 
-const inter = Inter({ subsets: ['latin'] });
+const mont = Montserrat({ subsets: ['latin'] });
 
 export const metadata = {
   title: 'Avatarixt',
@@ -16,8 +16,8 @@ export default function RootLayout({
   children: React.ReactNode
 }) {
   return (
-    <html lang="en">
-      <body className={inter.className}>{children}</body>
+    <html lang="en" suppressHydrationWarning>
+      <body className={mont.className}>{children}</body>
     </html>
   );
 }

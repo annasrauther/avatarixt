@@ -3,40 +3,41 @@ import CustomizerForm from '@/components/customizerForm/CustomizerForm';
 import Preview from '@/components/preview/Preview';
 import partMap from '@/lib/parts';
 import { SelectedOptionsProvider, SelectedOptionsContextType } from '@/context/selectedOptionsContext';
+import styles from './page.module.css';
 
 export default function Home() {
   const selectedOptionsValue: SelectedOptionsContextType = {
     selectedOptions: {
-      "accessory": "shades",
+      "mask": false,
       "body": "chest",
-      "circleColor": "blue",
-      "clothing": "tankTop",
-      "clothingColor": "black",
-      "eyebrows": "concerned",
-      "eyes": "leftTwitch",
-      "faceMask": false,
-      "faceMaskColor": "black",
-      "facialHair": "mediumBeard",
-      "graphic": "redwood",
-      "hair": "bob",
+      "skinTone": "light",
+      "clothing": "naked",
+      "graphic": "none",
+      "clothingColor": "white",
+      "hair": "none",
       "hairColor": "blonde",
+      "facialHair": "none",
+      "lashes": false,
+      "eyes": "normal",
+      "eyebrows": "raised",
+      "mouth": "grin",
+      "lipColor": "red",
+      "faceMask": false,
+      "faceMaskColor": "white",
+      "accessory": "none",
       "hat": "none",
-      "hatColor": "green",
-      "lashes": true,
-      "lipColor": "green",
-      "mask": true,
-      "mouth": "open",
-      "skinTone": "dark"
+      "hatColor": "white",
     },
     handleOptionChange: () => { }
   };
 
   return (
-    <>
-      <SelectedOptionsProvider value={selectedOptionsValue}>
+    <SelectedOptionsProvider value={selectedOptionsValue}>
+      <h2 className={styles.logo}>AVATARIXT</h2>
+      <div className={styles.grid}>
         <Preview />
         <CustomizerForm partMap={partMap} />
-      </SelectedOptionsProvider>
-    </>
+      </div>
+    </SelectedOptionsProvider>
   );
 }
