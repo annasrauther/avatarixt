@@ -1,23 +1,28 @@
 .container {
   padding: 0 15px;
+
+  @media screen and (min-width: 600px) {
+    max-height: 90vh;
+    overflow: scroll;
+    border-left: 1px solid #eeeeee;
+  }
 }
 
 .formGroup {
-  margin-bottom: 20px;
+  padding: 15px 0;
+  border-bottom: 1px solid #eeeeee;
 }
 
 .label {
-  font-size: 18px;
-  margin-bottom: 10px;
-}
-
-.selectedOption {
-  margin-bottom: 10px;
+  display: inline-block;
+  font-size: 1em;
+  margin: 0;
+  font-weight: 400;
+  text-transform: uppercase;
 }
 
 .switchContainer {
-  display: flex;
-  align-items: center;
+  float: right;
 }
 
 .switchLabel {
@@ -27,6 +32,7 @@
 .colorPickerContainer {
   display: flex;
   align-items: center;
+  margin-top: 10px;
 }
 
 .colorLabel {
@@ -36,6 +42,7 @@
 .cardContainer {
   display: flex;
   align-items: center;
+  margin-top: 10px;
 }
 
 .cardLabel {

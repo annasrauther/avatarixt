@@ -56,7 +56,7 @@ const CustomizerForm = ({ partMap }: ICustomizerFormProps) => {
 
   return (
     <div className={styles.container}>
-      {Object.keys(selectedOptions).map((partKey) => {
+      {/* {Object.keys(selectedOptions).map((partKey) => {
         const selectedOption = selectedOptions[partKey];
 
         return (
@@ -64,16 +64,14 @@ const CustomizerForm = ({ partMap }: ICustomizerFormProps) => {
             <h3 className={styles.label}>{partKey.toLocaleUpperCase()}: {selectedOption}</h3>
           </div>
         );
-      })}
+      })} */}
       {Object.keys(partMap).map((partKey) => {
         const part = partMap[partKey];
-        const selectedOption = selectedOptions[partKey];
         const { label, component, options } = part;
 
         return (
           <div className={styles.formGroup} key={partKey}>
             <h3 className={styles.label}>{label}</h3>
-            <p className={styles.selectedOption}>Selected Option: {selectedOption}</p>
             {renderComponent(component, partKey, options)}
           </div>
         );
