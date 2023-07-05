@@ -1,5 +1,6 @@
-import { useContext } from 'react';
+import { useState, useContext } from 'react';
 import { SelectedOptionsContext, SelectedOptionsContextType } from '@/context/selectedOptionsContext';
+import styles from './ColorPicker.module.css';
 
 export interface IColorPickerProps {
   partKey: string;
@@ -13,33 +14,35 @@ export interface IColorPickerProps {
 
 const ColorPicker: React.FC<IColorPickerProps> = ({ partKey, value, colors, onChange }) => {
   const { handleOptionChange } = useContext<SelectedOptionsContextType>(SelectedOptionsContext);
+  const [isCardOpen, setIsCardOpen] = useState(false);
 
   const handleColorChange = (color: string) => {
     handleOptionChange(partKey, color);
     onChange(color);
   };
 
+  const handleCardToggle = () => {
+    setIsCardOpen((prev) => !prev);
+  };
+
   return (
-    <div style={{ display: 'flex', flexWrap: 'wrap' }}>
-      {colors.map((color) => (
-        <div
-          key={color.id}
-          style={{
-            position: 'relative',
-            width: '30px',
-            height: '30px',
-            color: color.value,
-            backgroundColor: color.value,
-            borderRadius: '100%',
-            margin: '8px',
-            cursor: 'pointer',
-            border: '1px solid #ccc',
-            transform: value === color.value ? 'scale(1.3)' : 'scale(1)',
-            transition: 'all 0.2s ease-in-out',
-          }}
-          onClick={() => handleColorChange(color.value)}
-        />
-      ))}
+    <div className={styles.container}>
+      <button className={styles.button} onClick={handleCardToggle}>
+        <span>{partKey}</span>
+        <div className={styles.dot} style={{ backgroundColor: value }} />
+      </button>
+      {isCardOpen && (
+        <div className={styles.cardContainer}>
+          {colors.map((color) => (
+            <div
+              key={color.id}
+              className={`${styles.colorOption} ${value === color.value ? styles.selected : ''}`}
+              style={{ backgroundColor: color.value, color: color.value }}
+              onClick={() => handleColorChange(color.value)}
+            />
+          ))}
+        </div>
+      )}
     </div>
   );
 };

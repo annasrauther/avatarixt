@@ -1,1 +1,48 @@
 /* ColorPickerComponent.module.css */
+
+.container {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.button {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+  background-color: white;
+  cursor: pointer;
+  font-size: .8em;
+  color: black;
+  text-transform: uppercase;
+  padding: 10px;
+  border-radius: 5px;
+  border: 1px solid #aaa;
+  transition: all 0.3s;
+}
+
+.dot {
+  width: 15px;
+  height: 15px;
+  border-radius: 50%;
+}
+
+.cardContainer {
+  display: flex;
+  flex-wrap: nowrap;
+  margin: 10px 0;
+}
+
+.colorOption {
+  position: relative;
+  width: 30px;
+  height: 30px;
+  border-radius: 100%;
+  margin: 8px;
+  cursor: pointer;
+  border: 1px solid #ccc;
+  transition: all 0.2s ease-in-out;
+}
+
+.colorOption.selected {
+  transform: scale(1.3);
+}
