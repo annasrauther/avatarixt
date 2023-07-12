@@ -26,12 +26,13 @@ const CustomizerForm: React.FC<CustomizerFormProps> = ({ partMap }) => {
           return null;
         }
         const part = partMap[partKey];
+        console.log(part)
         const { label, component, options: partOptions } = part;
         const componentOptions = options[partKey]?.value;
         switch (component) {
           case 'switch':
             return (
-              <div className={styles.formGroup} key={partKey}>
+              <div className={`${styles.formGroup} ${styles[component]}`} key={partKey}>
                 <h3 className={styles.label}>{label}</h3>
                 <div className={styles.switchContainer}>
                   <SwitchPill
@@ -43,7 +44,7 @@ const CustomizerForm: React.FC<CustomizerFormProps> = ({ partMap }) => {
             );
           case 'color':
             return (
-              <div className={styles.formGroup} key={partKey}>
+              <div className={`${styles.formGroup} ${styles[component]}`} key={partKey}>
                 <div className={styles.colorPickerContainer}>
                   <ColorPicker
                     partKey={partKey}
@@ -56,7 +57,7 @@ const CustomizerForm: React.FC<CustomizerFormProps> = ({ partMap }) => {
             );
           case 'card':
             return (
-              <div className={styles.formGroup} key={partKey}>
+              <div className={`${styles.formGroup} ${styles[component]}`} key={partKey}>
                 <h3 className={styles.label}>{label}</h3>
                 <div className={styles.cardContainer}>
                   <Card partKey={partKey} options={partOptions as CardOption[]} />
