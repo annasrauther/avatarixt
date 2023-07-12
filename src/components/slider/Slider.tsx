@@ -32,7 +32,7 @@ const Slider: React.FC<SliderProps> = ({ children }) => {
 
   const handlePrevClick = () => {
     if (sliderRef.current) {
-      const { offsetWidth, scrollLeft } = sliderRef.current;
+      const { offsetWidth } = sliderRef.current;
       sliderRef.current.scrollLeft -= offsetWidth / 2;
       checkButtons();
     }
@@ -40,7 +40,7 @@ const Slider: React.FC<SliderProps> = ({ children }) => {
 
   const handleNextClick = () => {
     if (sliderRef.current) {
-      const { offsetWidth, scrollLeft } = sliderRef.current;
+      const { offsetWidth } = sliderRef.current;
       sliderRef.current.scrollLeft += offsetWidth / 2;
       checkButtons();
     }
