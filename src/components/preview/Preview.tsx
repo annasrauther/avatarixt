@@ -39,26 +39,25 @@ const Preview = () => {
         right: 0,
       }} className={styles.button}>Download</button>
       <BigHead
-        accessory={accessory}
-        body={body}
-        circleColor={circleColor}
-        clothing={clothing}
-        clothingColor={clothingColor}
-        eyebrows={eyebrows}
-        eyes={eyes}
-        faceMask={faceMask}
-        faceMaskColor={faceMaskColor}
-        facialHair={facialHair}
-        graphic={graphic}
-        hair={hair}
-        hairColor={hairColor}
-        hat={hat}
-        hatColor={hatColor}
-        lashes={lashes}
-        lipColor={lipColor}
-        mask={mask}
-        mouth={mouth}
-        skinTone={skinTone}
+        accessory={accessory.value}
+        body={body.value}
+        clothing={clothing.value}
+        clothingColor={clothingColor.value}
+        eyebrows={eyebrows.value}
+        eyes={eyes.value}
+        faceMask={faceMask.value}
+        faceMaskColor={faceMaskColor.value}
+        facialHair={facialHair.value}
+        graphic={graphic.value}
+        hair={hair.value}
+        hairColor={hairColor.value}
+        hat={hat.value}
+        hatColor={hatColor.value}
+        lashes={lashes.value}
+        lipColor={lipColor.value}
+        mask={mask.value}
+        mouth={mouth.value}
+        skinTone={skinTone.value}
       />
     </div>
 

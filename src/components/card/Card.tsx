@@ -7,13 +7,12 @@ export interface ICardProps {
   partKey: string;
   value: string;
   options: { id: string; label: string; value: string }[];
-  onChange: (_newValue: string) => void;
 }
 
 const CardComponent: React.FC<ICardProps> = ({ partKey, options }) => {
   const { selectedOptions, handleOptionChange } = useContext<SelectedOptionsContextType>(SelectedOptionsContext);
 
-  const value = selectedOptions[partKey];
+  const value = selectedOptions[partKey].value;
 
   const handleCardChange = (option: string) => {
     handleOptionChange(partKey, option);
@@ -22,7 +21,6 @@ const CardComponent: React.FC<ICardProps> = ({ partKey, options }) => {
   return (
     <>
       <div className={styles.container}>
-
         {options.map((option) => (
           <div
             key={option.id}

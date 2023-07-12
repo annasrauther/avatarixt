@@ -12,7 +12,8 @@ export interface ICustomizerFormProps {
 const CustomizerForm = ({ partMap }: ICustomizerFormProps) => {
   const { selectedOptions, handleOptionChange } = useContext<SelectedOptionsContextType>(SelectedOptionsContext);
 
-  const updateOption = (partKey: string, newValue: any) => {
+  const updateSwitchOption = (partKey: string, newValue: any) => {
+    // Only for Switch Component Events
     handleOptionChange(partKey, newValue);
   };
 
@@ -20,43 +21,41 @@ const CustomizerForm = ({ partMap }: ICustomizerFormProps) => {
     switch (component) {
       case 'switch':
         return (
-          <>
+          <div className={styles.formGroup} key={partKey}>
             <h3 className={styles.label}>{label}</h3>
             <div className={styles.switchContainer}>
               <SwitchPill
-                value={selectedOptions[partKey]}
-                onChange={(newValue: boolean) => updateOption(partKey, newValue)}
+                value={selectedOptions[partKey].value}
+                onChange={(newValue: boolean) => updateSwitchOption(partKey, newValue)}
               />
             </div>
-          </>
+          </div>
         );
       case 'color':
         return (
-          <>
+          <div className={styles.formGroup} key={partKey}>
             <div className={styles.colorPickerContainer}>
               <ColorPicker
                 partKey={partKey}
                 label={label}
-                value={selectedOptions[partKey]}
+                value={selectedOptions[partKey].value}
                 colors={options}
-                onChange={(newValue: string) => updateOption(partKey, newValue)}
               />
             </div>
-          </>
+          </div>
         );
       case 'card':
         return (
-          <>
+          <div className={styles.formGroup} key={partKey}>
             <h3 className={styles.label}>{label}</h3>
             <div className={styles.cardContainer}>
               <Card
                 partKey={partKey}
-                value={selectedOptions[partKey]}
+                value={selectedOptions[partKey].value}
                 options={options}
-                onChange={(newValue: string) => updateOption(partKey, newValue)}
               />
             </div>
-          </>
+          </div>
         );
       default:
         return null;
@@ -66,14 +65,12 @@ const CustomizerForm = ({ partMap }: ICustomizerFormProps) => {
   return (
     <div className={styles.container}>
       {Object.keys(partMap).map((partKey) => {
+        if (!selectedOptions[partKey].display) {
+          return true;
+        }
         const part = partMap[partKey];
         const { label, component, options } = part;
-
-        return (
-          <div className={styles.formGroup} key={partKey}>
-            {renderComponent(component, partKey, label, options)}
-          </div>
-        );
+        return renderComponent(component, partKey, label, options)
       })}
     </div>
   );

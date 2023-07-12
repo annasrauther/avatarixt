@@ -10,6 +10,9 @@ interface partMapProps {
       value: string | boolean;
       hex?: string;
     }[];
+    disables?: {
+      [key: string]: string[] | boolean[];
+    };
   };
 }
 
@@ -29,6 +32,10 @@ const partMap: partMapProps = {
       { id: 'body-chest', label: 'Male', value: 'chest' },
       { id: 'body-breasts', label: 'Female', value: 'breasts' },
     ],
+    disables: {
+      lashes: ['chest'],
+      facialHair: ['breasts'],
+    },
   },
   skinTone: {
     label: 'Skin Tone',
@@ -46,6 +53,10 @@ const partMap: partMapProps = {
       { id: 'clothing-tankTop', label: 'Tank Top', value: 'tankTop' },
       { id: 'clothing-dress', label: 'Dress', value: 'dress' },
     ],
+    disables: {
+      clothingColor: ['naked'],
+      graphic: ['naked', 'dress'],
+    },
   },
   clothingColor: {
     label: 'Clothing Color',
@@ -78,6 +89,9 @@ const partMap: partMapProps = {
       { id: 'hair-afro', label: 'Afro', value: 'afro' },
       { id: 'hair-bob', label: 'Bob', value: 'bob' },
     ],
+    disables: {
+      hairColor: ['none'],
+    },
   },
   hairColor: {
     label: 'Hair Color',
@@ -147,6 +161,9 @@ const partMap: partMapProps = {
       { id: 'mouth-serious', label: 'Serious', value: 'serious' },
       { id: 'mouth-tongue', label: 'Tongue', value: 'tongue' },
     ],
+    disables: {
+      lipColor: ['lips'],
+    },
   },
   lipColor: {
     label: 'Lip Color',
@@ -160,6 +177,9 @@ const partMap: partMapProps = {
       { id: 'faceMask-true', label: 'True', value: true },
       { id: 'faceMask-false', label: 'False', value: false },
     ],
+    disables: {
+      faceMaskColor: [false],
+    },
   },
   faceMaskColor: {
     label: 'Face Mask Color',
@@ -192,6 +212,9 @@ const partMap: partMapProps = {
       { id: 'hat-beanie', label: 'Beanie', value: 'beanie' },
       { id: 'hat-turban', label: 'Turban', value: 'turban' },
     ],
+    disables: {
+      hatColor: ['none'],
+    },
   },
   hatColor: {
     label: 'Hat Color',

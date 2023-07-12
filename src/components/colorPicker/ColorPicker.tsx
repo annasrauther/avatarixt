@@ -11,10 +11,9 @@ export interface IColorPickerProps {
     value: string;
     hex: string;
   }[];
-  onChange: (_value: string) => void;
 }
 
-const ColorPicker: React.FC<IColorPickerProps> = ({ partKey, label, value, colors, onChange }) => {
+const ColorPicker: React.FC<IColorPickerProps> = ({ partKey, label, value, colors }) => {
   const { handleOptionChange } = useContext<SelectedOptionsContextType>(SelectedOptionsContext);
   const [isCardOpen, setIsCardOpen] = useState(false);
   const [selectedColor, setSelectedColor] = useState('');
@@ -23,7 +22,6 @@ const ColorPicker: React.FC<IColorPickerProps> = ({ partKey, label, value, color
   const handleColorChange = (color: string, hex: string) => {
     handleOptionChange(partKey, color);
     setSelectedColor(hex);
-    onChange(color);
   };
 
   const handleCardToggle = () => {
