@@ -1,0 +1,48 @@
+.sliderContainer {
+  overflow-x: hidden;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 0;
+  padding: 0;
+  scroll-behavior: smooth;
+}
+
+.sliderWrapper {
+  display: flex;
+  align-items: center;
+  width: 100%;
+}
+
+.btn-wrapper {
+  position: absolute;
+  right: 5px;
+  top: 5px;
+  display: flex;
+  justify-content: space-between;
+  gap: 5px;
+}
+
+.btn:hover {
+  border: 2px solid black;
+  transform: scale(1.1);
+}
+
+.btn {
+  border: 2px solid grey;
+  padding: 5px;
+  cursor: pointer;
+  width: 20px;
+  height: 20px;
+  background: white;
+  text-align: center;
+  color: black;
+  font-weight: 800;
+  border-radius: 50%;
+  transition: all 0.3s;
+}
+
+.disable {
+  opacity: 0.5;
+  pointer-events: none;
+}

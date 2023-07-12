@@ -1,4 +1,4 @@
-import { useContext } from 'react';
+import { useContext, useEffect, useState } from 'react';
 import { BigHead } from '@bigheads/core';
 import { SelectedOptionsContext, SelectedOptionsContextType } from '@/context/selectedOptionsContext';
 
@@ -10,7 +10,6 @@ const Preview = () => {
   const {
     accessory,
     body,
-    circleColor,
     clothing,
     clothingColor,
     eyebrows,
@@ -30,14 +29,52 @@ const Preview = () => {
     skinTone,
   } = selectedOptions;
 
+  const [isSticky, setIsSticky] = useState(false);
+
+  useEffect(() => {
+    // Observer for checking intersection with viewport
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          setIsSticky(entry.isIntersecting);
+        });
+      },
+      { threshold: 0 }
+    );
+
+    const target = document.querySelector(`.${styles.previewContainer}`);
+    if (target) {
+      observer.observe(target);
+    }
+
+    return () => {
+      if (target) {
+        observer.unobserve(target);
+      }
+    };
+  }, []);
+
+  useEffect(() => {
+    // Scroll event listener for updating sticky state
+    const handleScroll = () => {
+      setIsSticky(window.scrollY > 0);
+    };
+
+    window.addEventListener('scroll', handleScroll);
+
+    return () => {
+      window.removeEventListener('scroll', handleScroll);
+    };
+  }, []);
+
   return (
-    <div className={styles.previewContainer}>
-      <button style={{
-        left: 0,
-      }} className={styles.button}>Random</button>
-      <button style={{
-        right: 0,
-      }} className={styles.button}>Download</button>
+    <div className={`${styles.previewContainer} ${isSticky ? styles.sticky : ''}`}>
+      <button style={{ left: 0 }} className={styles.button}>
+        Random
+      </button>
+      <button style={{ right: 0 }} className={styles.button}>
+        Download
+      </button>
       <BigHead
         accessory={accessory.value}
         body={body.value}
@@ -60,7 +97,6 @@ const Preview = () => {
         skinTone={skinTone.value}
       />
     </div>
-
   );
 };
 

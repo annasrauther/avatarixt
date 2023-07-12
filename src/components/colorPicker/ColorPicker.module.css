@@ -5,6 +5,7 @@
   flex-wrap: wrap;
   position: relative;
   margin-left: 5px;
+
 }
 
 .button {
@@ -41,6 +42,7 @@
 .cardContainer {
   display: flex;
   flex-wrap: nowrap;
+  z-index: 100;
   margin: 10px 0;
   box-shadow: 0 0 5px rgba(0, 0, 0, 0.3);
   padding: 5px;

@@ -1,5 +1,6 @@
 import { useContext } from 'react';
 import Image from 'next/image';
+import Slider from '../slider/Slider';
 import { SelectedOptionsContext, SelectedOptionsContextType } from '@/context/selectedOptionsContext';
 import styles from './Card.module.css';
 
@@ -21,28 +22,30 @@ const CardComponent: React.FC<ICardProps> = ({ partKey, options }) => {
   return (
     <>
       <div className={styles.container}>
-        {options.map((option) => (
-          <div
-            key={option.id}
-            className={styles.card}
-            onClick={() => handleCardChange(option.value)}
-          >
-            <Image
-              // src={`/img/${option}.svg`}
-              src="/vercel.svg"
-              alt={option.label}
-              width={100}
-              height={100}
-              placeholder="blur"
-              className={value === option.value ? styles.active : ''}
-              blurDataURL="data:image/svg+xml;base64,..."
-            />
-            <span style={{
-              fontWeight: value === option.value ? '800' : '300',
+        <Slider>
+          {options.map((option) => (
+            <div
+              key={option.id}
+              className={styles.card}
+              onClick={() => handleCardChange(option.value)}
+            >
+              <Image
+                // src={`/img/${option}.svg`}
+                src="/vercel.svg"
+                alt={option.label}
+                width={100}
+                height={100}
+                placeholder="blur"
+                className={value === option.value ? styles.active : ''}
+                blurDataURL="data:image/svg+xml;base64,..."
+              />
+              <span style={{
+                fontWeight: value === option.value ? '800' : '300',
 
-            }}>{option.label.toLocaleUpperCase()}</span>
-          </div>
-        ))}
+              }}>{option.label.toLocaleUpperCase()}</span>
+            </div>
+          ))}
+        </Slider>
       </div>
     </>
   );

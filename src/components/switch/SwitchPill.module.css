@@ -7,6 +7,7 @@
   height: 20px;
   background-color: gray;
   border-radius: 20px;
+  cursor: pointer;
   transition: background-color 0.3s;
 }
 
