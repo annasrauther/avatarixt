@@ -1,53 +1,46 @@
 import { useContext } from 'react';
-import Image from 'next/image';
 import Slider from '../slider/Slider';
-import { SelectedOptionsContext, SelectedOptionsContextType } from '@/context/selectedOptionsContext';
+import CardItem from './CardItem';
 import styles from './Card.module.css';
 
-export interface ICardProps {
-  partKey: string;
+import { OptionsContext, OptionsContextType } from '@/context/optionsContext';
+const OptionsContextNonNull = OptionsContext as NonNullable<React.Context<OptionsContextType>>;
+
+export interface CardOption {
+  id: string;
+  label: string;
   value: string;
-  options: { id: string; label: string; value: string }[];
 }
 
-const CardComponent: React.FC<ICardProps> = ({ partKey, options }) => {
-  const { selectedOptions, handleOptionChange } = useContext<SelectedOptionsContextType>(SelectedOptionsContext);
+interface CardProps {
+  partKey: string;
+  options: CardOption[];
+}
 
-  const value = selectedOptions[partKey].value;
+const CardComponent: React.FC<CardProps> = ({ partKey, options }) => {
+  const { options: contextOptions, updateOption } = useContext<OptionsContextType>(OptionsContextNonNull);
+  const value = contextOptions[partKey].value;
 
   const handleCardChange = (option: string) => {
-    handleOptionChange(partKey, option);
+    updateOption(partKey, option);
   };
 
   return (
-    <>
-      <div className={styles.container}>
-        <Slider>
-          {options.map((option) => (
-            <div
+    <div className={styles.container}>
+      <Slider>
+        {options.map((option) => {
+          const isActive = value === option.value;
+          return (
+            <CardItem
               key={option.id}
-              className={styles.card}
+              option={option}
+              isActive={isActive}
               onClick={() => handleCardChange(option.value)}
-            >
-              <Image
-                // src={`/img/${option}.svg`}
-                src="/vercel.svg"
-                alt={option.label}
-                width={100}
-                height={100}
-                placeholder="blur"
-                className={value === option.value ? styles.active : ''}
-                blurDataURL="data:image/svg+xml;base64,..."
-              />
-              <span style={{
-                fontWeight: value === option.value ? '800' : '300',
-
-              }}>{option.label.toLocaleUpperCase()}</span>
-            </div>
-          ))}
-        </Slider>
-      </div>
-    </>
+            />
+          );
+        })}
+      </Slider>
+    </div>
   );
 };
 
