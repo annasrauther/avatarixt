@@ -162,7 +162,7 @@ const partMap: partMapProps = {
       { id: 'mouth-tongue', label: 'Tongue', value: 'tongue' },
     ],
     disables: {
-      lipColor: ['lips'],
+      lipColor: ['grin', 'sad', 'openSmile', 'open', 'serious', 'tongue'],
     },
   },
   lipColor: {
