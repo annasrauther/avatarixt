@@ -1,12 +1,12 @@
 import { ChangeEvent } from 'react';
 import styles from './SwitchPill.module.css';
 
-export interface ISwitchPillProps {
+export interface SwitchPillProps {
   value: boolean;
   onChange: (_newValue: boolean) => void;
 }
 
-const SwitchPill = ({ value, onChange }: ISwitchPillProps) => {
+const SwitchPill: React.FC<SwitchPillProps> = ({ value, onChange }) => {
   const handleChange = (event: ChangeEvent<HTMLInputElement>) => {
     const newValue = event.target.checked;
     onChange(newValue);
