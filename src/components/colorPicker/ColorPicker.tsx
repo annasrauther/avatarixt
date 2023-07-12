@@ -1,8 +1,10 @@
+"use client";
 import { useState, useContext, useEffect, useRef } from 'react';
-import { SelectedOptionsContext, SelectedOptionsContextType } from '@/context/selectedOptionsContext';
+import { OptionsContext, OptionsContextType } from '@/context/optionsContext';
+const OptionsContextNonNull = OptionsContext as NonNullable<React.Context<OptionsContextType>>;
 import styles from './ColorPicker.module.css';
 
-export interface IColorPickerProps {
+export interface ColorPickerProps {
   partKey: string;
   label: string;
   value: string;
@@ -13,14 +15,14 @@ export interface IColorPickerProps {
   }[];
 }
 
-const ColorPicker: React.FC<IColorPickerProps> = ({ partKey, label, value, colors }) => {
-  const { handleOptionChange } = useContext<SelectedOptionsContextType>(SelectedOptionsContext);
+const ColorPicker: React.FC<ColorPickerProps> = ({ partKey, label, value, colors }) => {
+  const { updateOption } = useContext<OptionsContextType>(OptionsContextNonNull);
   const [isCardOpen, setIsCardOpen] = useState(false);
   const [selectedColor, setSelectedColor] = useState('');
   const cardRef = useRef<HTMLDivElement>(null);
 
   const handleColorChange = (color: string, hex: string) => {
-    handleOptionChange(partKey, color);
+    updateOption(partKey, color);
     setSelectedColor(hex);
   };
 
