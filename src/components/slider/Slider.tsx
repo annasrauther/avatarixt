@@ -12,7 +12,10 @@ const Slider: React.FC<SliderProps> = ({ children }) => {
   const [isContentOverflowing, setIsContentOverflowing] = useState(false);
 
   useEffect(() => {
-    checkButtons();
+    if (sliderRef.current) {
+      const { scrollLeft } = sliderRef.current;
+      checkButtons(scrollLeft);
+    }
   }, []);
 
   useEffect(() => {
@@ -22,29 +25,33 @@ const Slider: React.FC<SliderProps> = ({ children }) => {
     }
   }, [children]);
 
-  const checkButtons = () => {
-    if (sliderRef.current) {
-      const { offsetWidth, scrollWidth, scrollLeft } = sliderRef.current;
-      setPrevDisable(scrollLeft <= 0);
-      setNextDisable(scrollLeft + offsetWidth >= scrollWidth);
-    }
-  };
-
   const handlePrevClick = () => {
     if (sliderRef.current) {
-      const { offsetWidth } = sliderRef.current;
-      sliderRef.current.scrollLeft -= offsetWidth / 2;
-      checkButtons();
+      const { offsetWidth, scrollLeft } = sliderRef.current;
+      const newScrollLeft = Math.max(scrollLeft - offsetWidth / 2, 0);
+      sliderRef.current.scrollLeft = newScrollLeft;
+      checkButtons(newScrollLeft);
     }
   };
 
   const handleNextClick = () => {
     if (sliderRef.current) {
-      const { offsetWidth } = sliderRef.current;
-      sliderRef.current.scrollLeft += offsetWidth / 2;
-      checkButtons();
+      const { offsetWidth, scrollWidth, scrollLeft } = sliderRef.current;
+      const newScrollLeft = Math.min(scrollLeft + offsetWidth / 2, scrollWidth - offsetWidth);
+      sliderRef.current.scrollLeft = newScrollLeft;
+      checkButtons(newScrollLeft);
     }
   };
+
+
+  const checkButtons = (scrollLeft: number) => {
+    if (sliderRef.current) {
+      const { offsetWidth, scrollWidth } = sliderRef.current;
+      setPrevDisable(scrollLeft <= 0);
+      setNextDisable(scrollLeft + offsetWidth >= scrollWidth);
+    }
+  };
+
 
   return (
     <div className={styles.sliderContainer} ref={sliderRef}>
