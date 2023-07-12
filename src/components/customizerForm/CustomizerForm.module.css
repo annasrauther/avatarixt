@@ -33,7 +33,6 @@
 .colorPickerContainer {
   display: flex;
   align-items: center;
-  margin-top: 10px;
 }
 
 .colorLabel {
@@ -43,7 +42,7 @@
 .cardContainer {
   display: flex;
   align-items: center;
-  margin-top: 10px;
+  margin-top: 20px;
 }
 
 .cardLabel {
