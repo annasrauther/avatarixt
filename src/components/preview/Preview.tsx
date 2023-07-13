@@ -1,9 +1,12 @@
 "use client"
-import { useContext, useEffect, useState } from 'react';
+import { useRef, useContext, useEffect, useState } from 'react';
 import { BigHead } from '@bigheads/core';
 import { OptionsContext } from '@/context/optionsContext';
+import RandomAvatar from './RandomAvatar';
+import DownloadAvatar from './DownloadAvatar';
 
 import styles from './Preview.module.css';
+import AvatarUsage from './AvatarUsage';
 
 const Preview = () => {
   const optionsContext = useContext(OptionsContext);
@@ -37,6 +40,7 @@ const Preview = () => {
   } = options;
 
   const [isSticky, setIsSticky] = useState(false);
+  const avatarRef = useRef<SVGSVGElement>(null);
 
   useEffect(() => {
     const handleScroll = () => {
@@ -44,7 +48,6 @@ const Preview = () => {
     };
 
     window.addEventListener('scroll', handleScroll);
-
     return () => {
       window.removeEventListener('scroll', handleScroll);
     };
@@ -52,13 +55,8 @@ const Preview = () => {
 
   return (
     <div className={`${styles.previewContainer} ${isSticky ? styles.sticky : ''}`}>
-      <button style={{ left: 0 }} className={styles.button}>
-        Random
-      </button>
-      <button style={{ right: 0 }} className={styles.button}>
-        Download
-      </button>
       <BigHead
+        ref={avatarRef}
         accessory={accessory?.value}
         body={body?.value}
         clothing={clothing?.value}
@@ -79,6 +77,11 @@ const Preview = () => {
         mouth={mouth?.value}
         skinTone={skinTone?.value}
       />
+      <div className={styles.actions}>
+        <RandomAvatar />
+        <DownloadAvatar avatarRef={avatarRef} />
+        <AvatarUsage />
+      </div>
     </div>
   );
 };

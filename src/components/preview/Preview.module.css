@@ -4,10 +4,9 @@
   background-color: #fffefc;
   padding: 0 10px;
   border-bottom: 1px solid #eee;
-  box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.1);
+  box-shadow: 3px 3px 1px rgb(0 0 0 / 40%);
   z-index: 1;
-  transform: scale(1);
-  transition: all 0.3s;
+  transition: all 0.1s;
 
   @media screen and (min-width: 768px) {
     max-width: 60vw;
@@ -18,7 +17,8 @@
 .previewContainer.sticky {
   transform: scale(0.95);
   border: 2px solid #aaa;
-  border-radius: 10px;
+  box-shadow: 4px 4px 1px rgb(0 0 0 / 20%);
+  border-radius: 5px;
 }
 
 .previewContainer svg {
@@ -27,23 +27,13 @@
   margin: 0 auto 10px;
 }
 
-.previewContainer.sticky .button {
+.previewContainer.sticky .actions {
   display: none;
 }
 
-.button {
-  position: absolute;
-  background: white;
-  margin: 5px;
-  font-size: 0.6em;
-  background-color: white;
-  cursor: pointer;
-  font-weight: 900;
-  color: black;
-  text-transform: uppercase;
-  padding: 10px;
-  border-radius: 5px;
-  border: 1px solid #ccc;
-  box-shadow: 0 0 5px rgba(0, 0, 0, 0.1);
-  transition: all 0.3s;
+.actions {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 10px;
 }
