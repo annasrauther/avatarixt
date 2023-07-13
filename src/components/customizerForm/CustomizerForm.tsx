@@ -33,7 +33,7 @@ const CustomizerForm: React.FC<CustomizerFormProps> = ({ partMap }) => {
             return (
               <div className={`${styles.formGroup} ${styles[component]}`} key={partKey}>
                 <h3 className={styles.label}>{label}</h3>
-                <div className={styles.switchContainer}>
+                <div>
                   <SwitchPill
                     value={componentOptions}
                     onChange={(newValue: boolean) => updateSwitchOption(partKey, newValue)}

@@ -1,9 +1,9 @@
 .button:hover {
-  box-shadow: 1px 1px 1px rgb(0 0 0 / 80%);
   color: black;
 }
 
 .button:active {
+  box-shadow: 1px 1px 1px rgb(0 0 0 / 80%);
   transform: scale(0.95);
 }
 
@@ -17,7 +17,7 @@
   background-color: white;
   cursor: pointer;
   padding: 0;
-  width: 30vw;
+  width: 120px;
   height: 40px;
   text-align: center;
   text-transform: uppercase;

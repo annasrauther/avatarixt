@@ -22,16 +22,20 @@
   padding: 15px 0;
 }
 
+.switch {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
 .label {
   display: inline-block;
   margin: 0;
+  margin-left: 5px;
   text-transform: uppercase;
-  font-size: 1em;
+  letter-spacing: 1px;
+  font-size: 1.2em;
   font-weight: 900;
-}
-
-.switchContainer {
-  float: right;
 }
 
 .switchLabel {
