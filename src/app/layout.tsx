@@ -7,7 +7,7 @@ const mont = Montserrat({ subsets: ['latin'] });
 
 export const metadata = {
   title: 'Avatarixt',
-  description: 'Generated Random Avatars powered by Bigheads.io',
+  description: 'Generate Random Avatars, powered by Bigheads.io',
 };
 
 export default function RootLayout({
@@ -20,9 +20,10 @@ export default function RootLayout({
       <body role="application" className={`${mont.className} ${styles.app}`}>
         <header>
           <h2 className={styles.logo}>{metadata.title}</h2>
+          <h1 className={styles.title}>Customize Your Avatar</h1>
         </header>
         <main>{children}</main>
-        <footer>
+        <footer className={styles.footer}>
           <p>{metadata.description}</p>
         </footer>
       </body>

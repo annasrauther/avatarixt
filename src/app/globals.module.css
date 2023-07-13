@@ -14,3 +14,24 @@
   text-transform: uppercase;
   letter-spacing: 5px;
 }
+
+.title {
+  margin: 0;
+  border-bottom: 1px solid #dddddd;
+  padding: 5px;
+  text-align: center;
+  text-transform: uppercase;
+  letter-spacing: 0.2em;
+  font-size: 0.8em;
+  font-weight: 400;
+}
+
+.footer {
+  border-top: 1px solid lightgray;
+  text-align: center;
+}
+
+.footer p {
+  padding: 10px 0;
+  margin: 0;
+}

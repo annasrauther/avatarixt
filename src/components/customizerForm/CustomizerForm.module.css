@@ -1,9 +1,9 @@
 .container {
   padding: 0 15px;
 
-  @media screen and (min-width: 600px) {
+  @media screen and (min-width: 768px) {
     border-left: 1px solid #eeeeee;
-    max-height: 90vh;
+    max-height: calc(100vh - 125px);
     overflow: scroll;
   }
 }

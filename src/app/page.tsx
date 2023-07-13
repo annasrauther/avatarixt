@@ -8,7 +8,6 @@ export default function Home() {
   return (
     <OptionsProvider>
       <section className={styles.grid}>
-        <h1 className={styles.title}>Customize Your Avatar</h1>
         <Preview />
         <CustomizerForm partMap={partMap} />
       </section>
