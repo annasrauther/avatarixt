@@ -1,10 +1,10 @@
 .sliderContainer {
-  overflow-x: hidden;
   display: flex;
-  justify-content: center;
   align-items: center;
+  justify-content: center;
   margin: 0;
   padding: 0;
+  overflow-x: hidden;
   scroll-behavior: smooth;
 }
 
@@ -15,34 +15,34 @@
 }
 
 .btn-wrapper {
-  position: absolute;
-  right: 5px;
-  top: 5px;
   display: flex;
+  position: absolute;
+  top: 5px;
+  right: 5px;
   justify-content: space-between;
   gap: 5px;
 }
 
 .btn:hover {
-  border: 2px solid black;
   transform: scale(0.95);
+  border: 2px solid black;
   box-shadow: 1px 1px 1px rgb(0 0 0 / 80%);
 }
 
 .btn {
+  transition: all 0.1s;
   border: 2px solid grey;
-  padding: 5px;
+  border-radius: 50%;
+  box-shadow: 3px 3px 1px rgb(0 0 0 / 40%);
+  background: white;
   cursor: pointer;
+  padding: 5px;
   width: 25px;
   height: 25px;
-  line-height: 25px;
-  background: white;
   text-align: center;
+  line-height: 25px;
   color: black;
   font-weight: 800;
-  border-radius: 50%;
-  transition: all 0.1s;
-  box-shadow: 3px 3px 1px rgb(0 0 0 / 40%);
 }
 
 .disable {

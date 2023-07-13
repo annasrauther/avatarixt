@@ -1,26 +1,26 @@
 .button:hover {
   transform: scale(0.99);
-  color: black;
   box-shadow: 1px 1px 1px rgb(0 0 0 / 80%);
+  color: black;
 }
 
 .button {
-  background: white;
-  width: 30vw;
-  height: 40px;
+  transition: all 0.1s;
   margin: 8px 0;
-  font-size: 0.9em;
+  border: 1.5px solid #ccc;
+  border-radius: 5px;
+  box-shadow: 3px 3px 1px rgb(0 0 0 / 40%);
+  background: white;
   background-color: white;
   cursor: pointer;
-  font-weight: 800;
-  color: dimgrey;
-  text-transform: uppercase;
   padding: 0;
+  width: 30vw;
+  height: 40px;
   text-align: center;
-  border-radius: 5px;
-  border: 1.5px solid #ccc;
-  box-shadow: 3px 3px 1px rgb(0 0 0 / 40%);
-  transition: all 0.1s;
+  text-transform: uppercase;
+  color: dimgrey;
+  font-size: 0.9em;
+  font-weight: 800;
 }
 
 .popupContainer {
@@ -30,24 +30,24 @@
 .popup {
   position: fixed;
   left: 3vw;
-  background-color: #fff;
   border: 1px solid #ccc;
   border-radius: 4px;
+  box-shadow: 8px 8px 1px rgba(0, 0, 0, 0.1);
+  background-color: #fff;
   padding: 10px;
   width: 90vw;
-  box-shadow: 8px 8px 1px rgba(0, 0, 0, 0.1);
   animation: Button_fadeIn__r7Api 0.3s ease-in;
 }
 
 @keyframes fadeIn {
   from {
-    opacity: 0;
     transform: translateY(-10px);
+    opacity: 0;
   }
 
   to {
-    opacity: 1;
     transform: translateY(0);
+    opacity: 1;
   }
 }
 
@@ -55,8 +55,8 @@
   background-color: #f9f9f9;
   padding: 10px;
   overflow: auto;
-  font-family: monospace;
-  font-size: 0.8rem;
   line-height: 1.2;
   white-space: pre-wrap;
+  font-family: monospace;
+  font-size: 0.8rem;
 }

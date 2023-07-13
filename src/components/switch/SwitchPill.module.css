@@ -1,26 +1,25 @@
 /* SwitchPill.module.css */
-
 .slider {
-  position: relative;
   display: inline-block;
+  position: relative;
+  transition: background-color 0.3s;
+  border-radius: 20px;
+  background-color: gray;
+  cursor: pointer;
   width: 40px;
   height: 20px;
-  background-color: gray;
-  border-radius: 20px;
-  cursor: pointer;
-  transition: background-color 0.3s;
 }
 
 .slider:before {
   position: absolute;
-  content: '';
-  height: 16px;
-  width: 16px;
-  left: 2px;
   bottom: 2px;
-  background-color: white;
-  border-radius: 50%;
+  left: 2px;
   transition: transform 0.3s;
+  border-radius: 50%;
+  background-color: white;
+  width: 16px;
+  height: 16px;
+  content: '';
 }
 
 .switchPillInput[type='checkbox'] {

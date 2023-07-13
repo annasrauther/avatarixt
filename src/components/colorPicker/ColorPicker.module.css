@@ -36,8 +36,8 @@
 
 .dot {
   flex-grow: 1;
-  height: 40px;
   border-left: 2px solid #999691;
+  height: 40px;
 }
 
 .cardContainer {
@@ -61,10 +61,10 @@
   margin: 8px;
   border: 2px solid transparent;
   border-radius: 5px;
+  box-shadow: 2px 2px rgba(0, 0, 0, 0.4);
   cursor: pointer;
   width: 40px;
   height: 40px;
-  box-shadow: 2px 2px rgba(0, 0, 0, 0.4);
 }
 
 .colorOption:hover,
@@ -73,8 +73,8 @@
 }
 
 .colorOption.selected {
-  border: 2px solid black;
   transform: scale(1.25);
+  border: 2px solid black;
 }
 
 .colorOption:hover {
