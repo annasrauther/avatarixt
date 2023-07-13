@@ -25,21 +25,24 @@
 
 .btn:hover {
   border: 2px solid black;
-  transform: scale(1.1);
+  transform: scale(0.95);
+  box-shadow: 1px 1px 1px rgb(0 0 0 / 80%);
 }
 
 .btn {
   border: 2px solid grey;
   padding: 5px;
   cursor: pointer;
-  width: 20px;
-  height: 20px;
+  width: 25px;
+  height: 25px;
+  line-height: 25px;
   background: white;
   text-align: center;
   color: black;
   font-weight: 800;
   border-radius: 50%;
-  transition: all 0.3s;
+  transition: all 0.1s;
+  box-shadow: 3px 3px 1px rgb(0 0 0 / 40%);
 }
 
 .disable {

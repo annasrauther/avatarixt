@@ -26,7 +26,6 @@ const CustomizerForm: React.FC<CustomizerFormProps> = ({ partMap }) => {
           return null;
         }
         const part = partMap[partKey];
-        console.log(part)
         const { label, component, options: partOptions } = part;
         const componentOptions = options[partKey]?.value;
         switch (component) {

@@ -62,7 +62,7 @@ const ColorPicker: React.FC<ColorPickerProps> = ({ partKey, label, value, colors
             <div
               key={color.id}
               className={`${styles.colorOption} ${value === color.value ? styles.selected : ''}`}
-              style={{ backgroundColor: color.hex }}
+              style={{ backgroundColor: color.hex, borderColor: (color.value === 'white') ? '#aaaaaa' : '' }}
               onClick={() => handleColorChange(color.value, color.hex)}
             />
           ))}

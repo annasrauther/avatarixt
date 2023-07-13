@@ -20,20 +20,20 @@
 }
 
 .card img {
-  width: 60px;
-  height: 60px;
+  width: 70px;
+  height: 70px;
   padding: 10px;
   border-radius: 5px;
   background: white;
-  border: 1px solid #dbdbdb;
-  box-shadow: 0 0 5px rgba(0, 0, 0, 0.3);
-  border: 2px solid transparent;
+  border: 2px solid #aaa;
   transition: all 0.3s;
+  box-shadow: 3px 3px 1px rgb(0 0 0 / 40%);
 }
 
 .card:hover img,
 .card img.active {
   border: 2px solid black;
+  box-shadow: 2px 2px 1px rgb(0 0 0 / 80%);
 }
 
 .card span {
