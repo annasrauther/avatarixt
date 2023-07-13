@@ -1,7 +1,10 @@
 .button:hover {
-  transform: scale(0.99);
   box-shadow: 1px 1px 1px rgb(0 0 0 / 80%);
   color: black;
+}
+
+.button:active {
+  transform: scale(0.95);
 }
 
 .button {

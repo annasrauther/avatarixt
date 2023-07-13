@@ -6,7 +6,6 @@ import RandomAvatar from './RandomAvatar';
 import DownloadAvatar from './DownloadAvatar';
 
 import styles from './Preview.module.css';
-import AvatarUsage from './AvatarUsage';
 
 const Preview = () => {
   const optionsContext = useContext(OptionsContext);
@@ -80,7 +79,6 @@ const Preview = () => {
       <div className={styles.actions}>
         <RandomAvatar />
         <DownloadAvatar avatarRef={avatarRef} />
-        <AvatarUsage />
       </div>
     </div>
   );

@@ -30,14 +30,19 @@
 
 .button:hover,
 .active {
-  transform: scale(0.99);
   box-shadow: 1px 1px 1px rgb(0 0 0 / 80%);
+}
+
+.button:active,
+.active {
+  transform: scale(0.95);
 }
 
 .dot {
   flex-grow: 1;
-  border-left: 2px solid #999691;
-  height: 40px;
+  height: 30px;
+  margin-right: 5px;
+  border-radius: 5px;
 }
 
 .cardContainer {

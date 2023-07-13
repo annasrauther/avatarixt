@@ -54,7 +54,7 @@ const ColorPicker: React.FC<ColorPickerProps> = ({ partKey, label, value, colors
     <div className={styles.container}>
       <button className={`${styles.button} ${isCardOpen ? styles.active : ''}`} onClick={handleCardToggle}>
         <span>{label}</span>
-        <div className={styles.dot} style={{ backgroundColor: selectedColor }} />
+        <div className={styles.dot} style={{ backgroundColor: selectedColor, border: (selectedColor === '#FFFFFF') ? `1px solid #aaa` : '' }} />
       </button>
       {isCardOpen && (
         <div ref={cardRef} className={styles.cardContainer}>
