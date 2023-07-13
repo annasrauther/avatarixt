@@ -1,4 +1,4 @@
-"use client"
+"use client";
 import { useRef, useContext, useEffect, useState } from 'react';
 import { BigHead } from '@bigheads/core';
 import { OptionsContext } from '@/context/optionsContext';
@@ -39,7 +39,7 @@ const Preview = () => {
   } = options;
 
   const [isSticky, setIsSticky] = useState(false);
-  const avatarRef = useRef<SVGSVGElement>(null);
+  const avatarRef = useRef(null);
 
   useEffect(() => {
     const handleScroll = () => {
@@ -53,7 +53,7 @@ const Preview = () => {
   }, []);
 
   return (
-    <div className={`${styles.previewContainer} ${isSticky ? styles.sticky : ''}`}>
+    <section className={`${styles.previewContainer} ${isSticky ? styles.sticky : ''}`}>
       <BigHead
         ref={avatarRef}
         accessory={accessory?.value}
@@ -75,12 +75,13 @@ const Preview = () => {
         mask={mask?.value}
         mouth={mouth?.value}
         skinTone={skinTone?.value}
+        aria-label="Avatar Preview"
       />
       <div className={styles.actions}>
         <RandomAvatar />
         <DownloadAvatar avatarRef={avatarRef} />
       </div>
-    </div>
+    </section>
   );
 };
 

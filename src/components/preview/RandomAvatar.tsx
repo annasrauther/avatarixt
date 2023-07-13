@@ -20,7 +20,12 @@ const RandomAvatar = () => {
   };
 
   return (
-    <button title="Random Avatar" className={styles.button} onClick={handleRandomize}>
+    <button
+      type="button"
+      title="Randomize Avatar"
+      className={styles.button}
+      onClick={handleRandomize}
+    >
       Random
     </button>
   );

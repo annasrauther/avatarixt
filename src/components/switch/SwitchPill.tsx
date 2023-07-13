@@ -4,9 +4,10 @@ import styles from './SwitchPill.module.css';
 export interface SwitchPillProps {
   value: boolean;
   onChange: (_newValue: boolean) => void;
+  ariaLabel: string;
 }
 
-const SwitchPill: React.FC<SwitchPillProps> = ({ value, onChange }) => {
+const SwitchPill: React.FC<SwitchPillProps> = ({ value, onChange, ariaLabel }) => {
   const handleChange = (event: ChangeEvent<HTMLInputElement>) => {
     const newValue = event.target.checked;
     onChange(newValue);
@@ -14,7 +15,14 @@ const SwitchPill: React.FC<SwitchPillProps> = ({ value, onChange }) => {
 
   return (
     <label className={styles.switchPill}>
-      <input className={styles.switchPillInput} type="checkbox" checked={value} onChange={handleChange} />
+      <input
+        className={styles.switchPillInput}
+        type="checkbox"
+        checked={value}
+        onChange={handleChange}
+        aria-checked={value}
+        aria-label={ariaLabel}
+      />
       <span className={styles.slider} />
     </label>
   );

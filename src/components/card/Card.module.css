@@ -15,7 +15,9 @@
   align-items: center;
   margin: 5px;
   border: none;
+  background: transparent;
   cursor: pointer;
+  padding: 0;
   scroll-snap-align: start;
 }
 

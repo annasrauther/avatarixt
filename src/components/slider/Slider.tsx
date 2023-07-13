@@ -26,7 +26,7 @@ const Slider: React.FC<SliderProps> = ({ children }) => {
   }, [children]);
 
   const handlePrevClick = () => {
-    if (sliderRef.current) {
+    if (!prevDisable && sliderRef.current) {
       const { offsetWidth, scrollLeft } = sliderRef.current;
       const newScrollLeft = Math.max(scrollLeft - offsetWidth / 2, 0);
       sliderRef.current.scrollLeft = newScrollLeft;
@@ -35,7 +35,7 @@ const Slider: React.FC<SliderProps> = ({ children }) => {
   };
 
   const handleNextClick = () => {
-    if (sliderRef.current) {
+    if (!nextDisable && sliderRef.current) {
       const { offsetWidth, scrollWidth, scrollLeft } = sliderRef.current;
       const newScrollLeft = Math.min(scrollLeft + offsetWidth / 2, scrollWidth - offsetWidth);
       sliderRef.current.scrollLeft = newScrollLeft;
@@ -55,21 +55,25 @@ const Slider: React.FC<SliderProps> = ({ children }) => {
 
   return (
     <div className={styles.sliderContainer} ref={sliderRef}>
-      <div className={styles.sliderWrapper}>{children}</div>
+      <div className={styles.sliderWrapper} role="list" aria-label='Slider'>{children}</div>
       {isContentOverflowing && (
-        <div className={styles['btn-wrapper']}>
-          <div
-            className={`${styles.btn} ${prevDisable ? styles.disable : ''}`}
+        <div className={styles['navigation-wrapper']}>
+          <button
+            className={`${styles.navigation} ${prevDisable ? styles.disable : ''}`}
+            aria-label='Previous'
+            aria-disabled={prevDisable}
             onClick={handlePrevClick}
           >
             &larr;
-          </div>
-          <div
-            className={`${styles.btn} ${nextDisable ? styles.disable : ''}`}
+          </button>
+          <button
+            className={`${styles.navigation} ${nextDisable ? styles.disable : ''}`}
+            aria-label='Next'
+            aria-disabled={prevDisable}
             onClick={handleNextClick}
           >
             &rarr;
-          </div>
+          </button>
         </div>
       )}
     </div>

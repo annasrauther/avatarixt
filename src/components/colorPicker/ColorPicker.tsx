@@ -1,4 +1,3 @@
-"use client";
 import { useState, useContext, useEffect, useRef } from 'react';
 import { OptionsContext, OptionsContextType } from '@/context/optionsContext';
 const OptionsContextNonNull = OptionsContext as NonNullable<React.Context<OptionsContextType>>;
@@ -52,18 +51,29 @@ const ColorPicker: React.FC<ColorPickerProps> = ({ partKey, label, value, colors
 
   return (
     <div className={styles.container}>
-      <span className={styles.label}>{label}</span>
-      <button className={`${styles.button} ${isCardOpen ? styles.active : ''}`} onClick={() => handleCardToggle()}>
-        <div className={styles.dot} style={{ backgroundColor: selectedColor, border: (selectedColor === '#FFFFFF') ? `1px solid #aaa` : '' }} />
+      <label className={styles.label}>{label}</label>
+      <button
+        className={`${styles.button} ${isCardOpen ? styles.active : ''}`}
+        onClick={() => handleCardToggle()}
+        aria-expanded={isCardOpen}
+        aria-haspopup="true"
+        aria-label={`${label} Color Picker`}
+      >
+        <div
+          className={styles.dot}
+          style={{ backgroundColor: selectedColor, border: selectedColor === '#FFFFFF' ? '1px solid #aaa' : '' }}
+        />
       </button>
       {isCardOpen && (
-        <div ref={cardRef} className={styles.cardContainer}>
+        <div ref={cardRef} className={styles.cardContainer} role="menu">
           {colors.map((color) => (
-            <div
+            <button
               key={color.id}
               className={`${styles.colorOption} ${value === color.value ? styles.selected : ''}`}
-              style={{ backgroundColor: color.hex, borderColor: (color.value === 'white') ? '#aaaaaa' : '' }}
+              style={{ backgroundColor: color.hex, borderColor: color.value === 'white' ? '#aaaaaa' : '' }}
               onClick={() => handleColorChange(color.value, color.hex)}
+              aria-pressed={value === color.value}
+              aria-label={`${color.value} Color`}
             />
           ))}
         </div>

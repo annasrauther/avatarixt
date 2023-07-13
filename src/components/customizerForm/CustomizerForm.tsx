@@ -19,8 +19,12 @@ const CustomizerForm: React.FC<CustomizerFormProps> = ({ partMap }) => {
     updateOption(partKey, newValue);
   };
 
+  const handleFormSubmit = (event: React.FormEvent<HTMLFormElement>) => {
+    event.preventDefault();
+  };
+
   return (
-    <div className={styles.container}>
+    <form className={styles.container} onSubmit={handleFormSubmit}>
       {Object.keys(partMap).map((partKey) => {
         if (!options[partKey]?.display) {
           return null;
@@ -37,6 +41,7 @@ const CustomizerForm: React.FC<CustomizerFormProps> = ({ partMap }) => {
                   <SwitchPill
                     value={componentOptions}
                     onChange={(newValue: boolean) => updateSwitchOption(partKey, newValue)}
+                    ariaLabel={label}
                   />
                 </div>
               </div>
@@ -50,6 +55,7 @@ const CustomizerForm: React.FC<CustomizerFormProps> = ({ partMap }) => {
                     label={label}
                     value={componentOptions}
                     colors={partOptions}
+                    aria-label={label}
                   />
                 </div>
               </div>
@@ -59,7 +65,11 @@ const CustomizerForm: React.FC<CustomizerFormProps> = ({ partMap }) => {
               <div className={`${styles.formGroup} ${styles[component]}`} key={partKey}>
                 <h3 className={styles.label}>{label}</h3>
                 <div className={styles.cardContainer}>
-                  <Card partKey={partKey} options={partOptions as CardOption[]} />
+                  <Card
+                    partKey={partKey}
+                    options={partOptions as CardOption[]}
+                    aria-label={label}
+                  />
                 </div>
               </div>
             );
@@ -67,7 +77,7 @@ const CustomizerForm: React.FC<CustomizerFormProps> = ({ partMap }) => {
             return null;
         }
       })}
-    </div>
+    </form>
   );
 };
 

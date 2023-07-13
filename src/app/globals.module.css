@@ -1,0 +1,16 @@
+.app {
+  margin: 0;
+  background-color: floralwhite;
+  padding: 0;
+}
+
+.logo {
+  margin: 0;
+  border-bottom: 1px solid #dddddd;
+  padding: 10px 0;
+  text-align: center;
+  font-size: 2rem;
+  font-weight: 900;
+  text-transform: uppercase;
+  letter-spacing: 5px;
+}

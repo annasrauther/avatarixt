@@ -7,11 +7,11 @@ import styles from './page.module.css';
 export default function Home() {
   return (
     <OptionsProvider>
-      <h2 className={styles.logo}>AVATARIXT</h2>
-      <div className={styles.grid}>
+      <section className={styles.grid}>
+        <h1 className={styles.title}>Customize Your Avatar</h1>
         <Preview />
         <CustomizerForm partMap={partMap} />
-      </div>
+      </section>
     </OptionsProvider>
   );
 }

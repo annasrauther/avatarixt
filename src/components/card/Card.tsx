@@ -26,7 +26,7 @@ const CardComponent: React.FC<CardProps> = ({ partKey, options }) => {
   };
 
   return (
-    <div className={styles.container}>
+    <div className={styles.container} role="group" aria-label="Part Options">
       <Slider>
         {options.map((option) => {
           const isActive = value === option.value;
@@ -36,6 +36,7 @@ const CardComponent: React.FC<CardProps> = ({ partKey, options }) => {
               option={option}
               isActive={isActive}
               onClick={() => handleCardChange(option.value)}
+              ariaLabel={option.label}
             />
           );
         })}
