@@ -10,6 +10,7 @@ export interface CardOption {
   id: string;
   label: string;
   value: string;
+  image: string;
 }
 
 interface CardProps {

@@ -21,7 +21,7 @@ const CardItem: React.FC<CardItemProps> = ({ option, isActive, onClick, ariaLabe
     >
       <div className={styles.imageContainer}>
         <Image
-          src="/vercel.svg" // Update with the actual image source
+          src={option.image} // Update with the actual image source
           alt={option.label}
           width={100}
           height={100}
