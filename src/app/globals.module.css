@@ -6,8 +6,7 @@
 
 .logo {
   margin: 0;
-  border-bottom: 1px solid #dddddd;
-  padding: 10px 0;
+  padding: 10px 0 0px;
   text-align: center;
   font-size: 2rem;
   font-weight: 900;
@@ -18,7 +17,7 @@
 .title {
   margin: 0;
   border-bottom: 1px solid #dddddd;
-  padding: 5px;
+  padding: 0 0 10px;
   text-align: center;
   text-transform: uppercase;
   letter-spacing: 0.2em;
