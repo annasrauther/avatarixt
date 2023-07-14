@@ -5,7 +5,15 @@
     border-left: 1px solid #eeeeee;
     max-height: calc(100vh - 125px);
     overflow: scroll;
+    scroll-behavior: smooth;
+    scroll-snap-type: y proximity;
   }
+}
+
+
+.disabled {
+  filter: opacity(0.5);
+  pointer-events: none;
 }
 
 .formGroup {

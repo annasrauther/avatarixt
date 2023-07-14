@@ -26,9 +26,6 @@ const CustomizerForm: React.FC<CustomizerFormProps> = ({ partMap }) => {
   return (
     <form className={styles.container} onSubmit={handleFormSubmit}>
       {Object.keys(partMap).map((partKey) => {
-        if (!options[partKey]?.display) {
-          return null;
-        }
         const part = partMap[partKey];
         const { label, component, options: partOptions } = part;
         const componentOptions = options[partKey]?.value;
@@ -48,7 +45,7 @@ const CustomizerForm: React.FC<CustomizerFormProps> = ({ partMap }) => {
             );
           case 'color':
             return (
-              <div className={`${styles.formGroup} ${styles[component]}`} key={partKey}>
+              <div className={`${styles.formGroup} ${styles[component]} ${!options[partKey]?.display ? styles.disabled : ''}`} key={partKey}>
                 <div className={styles.colorPickerContainer}>
                   <ColorPicker
                     partKey={partKey}
