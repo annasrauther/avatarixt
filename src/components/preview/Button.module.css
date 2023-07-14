@@ -1,0 +1,65 @@
+.button:hover {
+  color: black;
+}
+
+.button:active {
+  box-shadow: 1px 1px 1px rgb(0 0 0 / 80%);
+  transform: scale(0.95);
+}
+
+.button {
+  transition: all 0.1s;
+  margin: 8px 0;
+  border: 1.5px solid #ccc;
+  border-radius: 5px;
+  box-shadow: 3px 3px 1px rgb(0 0 0 / 40%);
+  background: white;
+  background-color: white;
+  cursor: pointer;
+  padding: 0;
+  width: 120px;
+  height: 40px;
+  text-align: center;
+  text-transform: uppercase;
+  color: dimgrey;
+  font-size: 0.9em;
+  font-weight: 800;
+}
+
+.popupContainer {
+  position: relative;
+}
+
+.popup {
+  position: fixed;
+  left: 3vw;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  box-shadow: 8px 8px 1px rgba(0, 0, 0, 0.1);
+  background-color: #fff;
+  padding: 10px;
+  width: 90vw;
+  animation: Button_fadeIn__r7Api 0.3s ease-in;
+}
+
+@keyframes fadeIn {
+  from {
+    transform: translateY(-10px);
+    opacity: 0;
+  }
+
+  to {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+
+.code {
+  background-color: #f9f9f9;
+  padding: 10px;
+  overflow: auto;
+  line-height: 1.2;
+  white-space: pre-wrap;
+  font-family: monospace;
+  font-size: 0.8rem;
+}

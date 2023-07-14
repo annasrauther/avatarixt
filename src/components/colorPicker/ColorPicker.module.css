@@ -1,0 +1,58 @@
+.container {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: center;
+  margin-top: 10px;
+  border: 2px solid #aaa;
+  border-radius: 5px;
+  box-shadow: 3px 3px 1px rgb(0 0 0 / 40%);
+  background: white;
+  padding: 5px;
+}
+
+.label {
+  display: inline-block;
+  margin: 0;
+  margin-left: 5px;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  font-size: 1.2em;
+  font-weight: 900;
+}
+
+.colorOption {
+  position: relative;
+  transition: all 0.1s;
+  margin: 8px;
+  border: 1px solid transparent;
+  border-radius: 5px;
+  box-shadow: 2px 2px rgba(0, 0, 0, 0.4);
+  cursor: pointer;
+  width: 40px;
+  height: 40px;
+}
+
+.colorOption.selected {
+  transform: scale(1.1);
+  border: 1px solid rgb(0 0 0 / 80%);
+}
+
+.colorOption:active {
+  transform: scale(0.95);
+}
+
+.colorOption:hover {
+  border: 1px solid rgb(0 0 0 / 80%);
+}
+
+.colorHex {
+  position: absolute;
+  right: 0;
+  border-radius: 4px;
+  background-color: rgb(0 0 0 / 80%);
+  padding: 5px 15px;
+  color: white;
+  font-size: 0.7em;
+  font-weight: 500;
+}
