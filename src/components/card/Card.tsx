@@ -28,18 +28,20 @@ const CardComponent: React.FC<CardProps> = ({ partKey, options }) => {
   return (
     <div className={styles.container} role="group" aria-label="Part Options">
       <Slider>
-        {options.map((option) => {
-          const isActive = value === option.value;
-          return (
-            <CardItem
-              key={option.id}
-              option={option}
-              isActive={isActive}
-              onClick={() => handleCardChange(option.value)}
-              ariaLabel={option.label}
-            />
-          );
-        })}
+        <div className={styles.flex} role="presentation">
+          {options.map((option) => {
+            const isActive = value === option.value;
+            return (
+              <CardItem
+                key={option.id}
+                option={option}
+                isActive={isActive}
+                onClick={() => handleCardChange(option.value)}
+                ariaLabel={option.label}
+              />
+            );
+          })}
+        </div>
       </Slider>
     </div>
   );

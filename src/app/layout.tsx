@@ -19,8 +19,8 @@ export default function RootLayout({
     <html lang="en" suppressHydrationWarning>
       <body role="application" className={`${mont.className} ${styles.app}`}>
         <header>
-          <h2 className={styles.logo}>{metadata.title}</h2>
-          <h1 className={styles.title}>Customize Your Avatar</h1>
+          <h1 className={styles.logo}>{metadata.title}</h1>
+          <h2 className={styles.title}>Customize Your Avatar</h2>
         </header>
         <main>{children}</main>
         <footer className={styles.footer}>

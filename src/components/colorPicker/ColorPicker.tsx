@@ -32,7 +32,7 @@ const ColorPicker: React.FC<ColorPickerProps> = ({ partKey, label, value, colors
 
   return (
     <>
-      <h3 className={styles.label}>{label} <span className={styles.colorHex}>{selectedColor}</span></h3>
+      <h4 className={styles.label}>{label} <span className={styles.colorHex}>{selectedColor}</span></h4>
       <div className={styles.container}>
         {colors.map((color) => (
           <button
