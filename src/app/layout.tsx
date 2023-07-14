@@ -8,6 +8,7 @@ const mont = Montserrat({ subsets: ['latin'] });
 export const metadata = {
   title: 'Avatarixt',
   description: 'Generate Random Avatars, powered by Bigheads.io',
+  manifest: '/manifest.webmanifest',
 };
 
 export default function RootLayout({
