@@ -2,6 +2,7 @@
   margin: 0;
   background-color: floralwhite;
   padding: 0;
+  user-select: none;
 }
 
 .logo {
