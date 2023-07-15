@@ -1,7 +1,13 @@
 /* autoprefixer grid: autoplace */
+.grid {
+  display: grid;
+  grid-template-rows: 1fr 1fr;
+}
+
 @media screen and (min-width: 768px) {
   .grid {
     display: grid;
+    grid-template-rows: auto;
     grid-template-columns: 1fr 1fr;
     height: calc(100vh - 110px);
     overflow: hidden;
