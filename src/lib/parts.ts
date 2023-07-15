@@ -43,10 +43,6 @@ const partMap: partMapProps = {
         image: 'parts/body-breasts.svg',
       },
     ],
-    disables: {
-      lashes: ['chest'],
-      facialHair: ['breasts'],
-    },
   },
   skinTone: {
     label: 'Skin Tone',
@@ -211,11 +207,6 @@ const partMap: partMapProps = {
       hatColor: ['balding', 'afro'],
     },
   },
-  hairColor: {
-    label: 'Hair Color',
-    component: 'color',
-    options: color.hair,
-  },
   facialHair: {
     label: 'Facial Hair',
     component: 'card',
@@ -237,6 +228,79 @@ const partMap: partMapProps = {
         label: 'Beard',
         value: 'mediumBeard',
         image: 'parts/facialHair-mediumBeard.svg',
+      },
+    ],
+  },
+  hairColor: {
+    label: 'Hair Color',
+    component: 'color',
+    options: color.hair,
+  },
+  hat: {
+    label: 'Hat',
+    component: 'card',
+    options: [
+      {
+        id: 'hat-none',
+        label: 'None',
+        value: 'none',
+        image: 'parts/none.svg',
+      },
+      {
+        id: 'hat-beanie',
+        label: 'Beanie',
+        value: 'beanie',
+        image: 'parts/hat-beanie.svg',
+      },
+      {
+        id: 'hat-turban',
+        label: 'Turban',
+        value: 'turban',
+        image: 'parts/hat-turban.svg',
+      },
+    ],
+    disables: {
+      hatColor: ['none'],
+    },
+  },
+  hatColor: {
+    label: 'Hat Color',
+    component: 'color',
+    options: color.clothing,
+  },
+  eyebrows: {
+    label: 'Eyebrows',
+    component: 'card',
+    options: [
+      {
+        id: 'eyebrows-raised',
+        label: 'Raised',
+        value: 'raised',
+        image: 'parts/eyebrows-raised.svg',
+      },
+      {
+        id: 'eyebrows-leftLowered',
+        label: 'Lowered',
+        value: 'leftLowered',
+        image: 'parts/eyebrows-leftLowered.svg',
+      },
+      {
+        id: 'eyebrows-serious',
+        label: 'Serious',
+        value: 'serious',
+        image: 'parts/eyebrows-serious.svg',
+      },
+      {
+        id: 'eyebrows-angry',
+        label: 'Angry',
+        value: 'angry',
+        image: 'parts/eyebrows-angry.svg',
+      },
+      {
+        id: 'eyebrows-concerned',
+        label: 'Worried',
+        value: 'concerned',
+        image: 'parts/eyebrows-concerned.svg',
       },
     ],
   },
@@ -308,39 +372,33 @@ const partMap: partMapProps = {
       },
     ],
   },
-  eyebrows: {
-    label: 'Eyebrows',
+  accessory: {
+    label: 'Accessory',
     component: 'card',
     options: [
       {
-        id: 'eyebrows-raised',
-        label: 'Raised',
-        value: 'raised',
-        image: 'parts/eyebrows-raised.svg',
+        id: 'accessory-none',
+        label: 'None',
+        value: 'none',
+        image: 'parts/none.svg',
       },
       {
-        id: 'eyebrows-leftLowered',
-        label: 'Lowered',
-        value: 'leftLowered',
-        image: 'parts/eyebrows-leftLowered.svg',
+        id: 'accessory-roundGlasses',
+        label: 'Glasses',
+        value: 'roundGlasses',
+        image: 'parts/accessory-roundGlasses.svg',
       },
       {
-        id: 'eyebrows-serious',
-        label: 'Serious',
-        value: 'serious',
-        image: 'parts/eyebrows-serious.svg',
+        id: 'accessory-tinyGlasses',
+        label: 'Eyewear',
+        value: 'tinyGlasses',
+        image: 'parts/accessory-tinyGlasses.svg',
       },
       {
-        id: 'eyebrows-angry',
-        label: 'Angry',
-        value: 'angry',
-        image: 'parts/eyebrows-angry.svg',
-      },
-      {
-        id: 'eyebrows-concerned',
-        label: 'Worried',
-        value: 'concerned',
-        image: 'parts/eyebrows-concerned.svg',
+        id: 'accessory-shades',
+        label: 'Shades',
+        value: 'shades',
+        image: 'parts/accessory-shades.svg',
       },
     ],
   },
@@ -413,68 +471,6 @@ const partMap: partMapProps = {
   },
   faceMaskColor: {
     label: 'Face Mask Color',
-    component: 'color',
-    options: color.clothing,
-  },
-  accessory: {
-    label: 'Accessory',
-    component: 'card',
-    options: [
-      {
-        id: 'accessory-none',
-        label: 'None',
-        value: 'none',
-        image: 'parts/none.svg',
-      },
-      {
-        id: 'accessory-roundGlasses',
-        label: 'Glasses',
-        value: 'roundGlasses',
-        image: 'parts/accessory-roundGlasses.svg',
-      },
-      {
-        id: 'accessory-tinyGlasses',
-        label: 'Eyewear',
-        value: 'tinyGlasses',
-        image: 'parts/accessory-tinyGlasses.svg',
-      },
-      {
-        id: 'accessory-shades',
-        label: 'Shades',
-        value: 'shades',
-        image: 'parts/accessory-shades.svg',
-      },
-    ],
-  },
-  hat: {
-    label: 'Hat',
-    component: 'card',
-    options: [
-      {
-        id: 'hat-none',
-        label: 'None',
-        value: 'none',
-        image: 'parts/none.svg',
-      },
-      {
-        id: 'hat-beanie',
-        label: 'Beanie',
-        value: 'beanie',
-        image: 'parts/hat-beanie.svg',
-      },
-      {
-        id: 'hat-turban',
-        label: 'Turban',
-        value: 'turban',
-        image: 'parts/hat-turban.svg',
-      },
-    ],
-    disables: {
-      hatColor: ['none'],
-    },
-  },
-  hatColor: {
-    label: 'Hat Color',
     component: 'color',
     options: color.clothing,
   },
