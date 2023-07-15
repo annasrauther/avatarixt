@@ -1,4 +1,4 @@
-import { useContext } from 'react';
+import { useContext, useState, useEffect } from 'react';
 import Slider from '../slider/Slider';
 import CardItem from './CardItem';
 import styles from './Card.module.css';
@@ -26,24 +26,47 @@ const CardComponent: React.FC<CardProps> = ({ partKey, options }) => {
     updateOption(partKey, option);
   };
 
+  const [isMobile, setIsMobile] = useState(false);
+
+  useEffect(() => {
+    const handleResize = () => {
+      setIsMobile(window.innerWidth <= 768);
+    };
+
+    handleResize(); // Initial check
+    window.addEventListener('resize', handleResize);
+
+    return () => {
+      window.removeEventListener('resize', handleResize);
+    };
+  }, []);
+
+  const renderCardItems = () => {
+    return options.map((option) => {
+      const isActive = value === option.value;
+      return (
+        <CardItem
+          key={option.id}
+          option={option}
+          isActive={isActive}
+          onClick={() => handleCardChange(option.value)}
+          ariaLabel={option.label}
+        />
+      );
+    });
+  };
+
   return (
     <div className={styles.container} role="group" aria-label="Part Options">
-      <Slider>
-        <div className={styles.flex} role="presentation">
-          {options.map((option) => {
-            const isActive = value === option.value;
-            return (
-              <CardItem
-                key={option.id}
-                option={option}
-                isActive={isActive}
-                onClick={() => handleCardChange(option.value)}
-                ariaLabel={option.label}
-              />
-            );
-          })}
-        </div>
-      </Slider>
+      {isMobile ? (
+        renderCardItems()
+      ) : (
+        <Slider>
+          <div className={styles.flex} role="presentation">
+            {renderCardItems()}
+          </div>
+        </Slider>
+      )}
     </div>
   );
 };
