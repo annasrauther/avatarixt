@@ -41,6 +41,7 @@
 .card span {
   transition: all 0.3s;
   margin-top: 5px;
+  color: black;
   font-size: 0.8em;
 }
 
