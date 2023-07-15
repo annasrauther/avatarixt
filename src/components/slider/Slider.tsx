@@ -1,6 +1,8 @@
 import { useRef, useEffect, useState } from 'react';
 import styles from './Slider.module.css';
 
+const isTouchDevice = 'ontouchstart' in window || navigator.maxTouchPoints > 0;
+
 interface SliderProps {
   children: React.ReactNode;
 }
@@ -52,6 +54,24 @@ const Slider: React.FC<SliderProps> = ({ children }) => {
     }
   };
 
+  const prevButtonEventHandlers = isTouchDevice
+    ? {
+      onTouchStart: handlePrevClick,
+      onTouchEnd: () => { },
+    }
+    : {
+      onClick: handlePrevClick,
+    };
+
+  const nextButtonEventHandlers = isTouchDevice
+    ? {
+      onTouchStart: handleNextClick,
+      onTouchEnd: () => { },
+    }
+    : {
+      onClick: handleNextClick,
+    };
+
 
   return (
     <div className={styles.sliderContainer} ref={sliderRef}>
@@ -62,7 +82,7 @@ const Slider: React.FC<SliderProps> = ({ children }) => {
             className={`${styles.navigation} ${prevDisable ? styles.disable : ''}`}
             aria-label='Previous'
             aria-disabled={prevDisable}
-            onClick={handlePrevClick}
+            {...prevButtonEventHandlers}
           >
             &larr;
           </button>
@@ -70,7 +90,7 @@ const Slider: React.FC<SliderProps> = ({ children }) => {
             className={`${styles.navigation} ${nextDisable ? styles.disable : ''}`}
             aria-label='Next'
             aria-disabled={prevDisable}
-            onClick={handleNextClick}
+            {...nextButtonEventHandlers}
           >
             &rarr;
           </button>
