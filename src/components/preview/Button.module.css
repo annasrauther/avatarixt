@@ -24,6 +24,7 @@
   color: dimgrey;
   font-size: 0.9em;
   font-weight: 800;
+  -webkit-tap-highlight-color: transparent;
 }
 
 .popupContainer {
