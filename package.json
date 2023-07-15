@@ -38,5 +38,10 @@
     "eslint-plugin-storybook": "^0.6.12",
     "husky": "^8.0.3",
     "prettier": "^2.8.8"
-  }
+  },
+  "browserslist": [
+    ">0.5%",
+    "not dead",
+    "not op_mini all"
+  ]
 }
