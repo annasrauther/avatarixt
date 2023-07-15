@@ -1,13 +1,6 @@
 import { useRef, useEffect, useState } from 'react';
 import styles from './Slider.module.css';
 
-
-let isTouchDevice = false;
-
-if (typeof window !== 'undefined') {
-  isTouchDevice = 'ontouchstart' in window || navigator.maxTouchPoints > 0;
-}
-
 interface SliderProps {
   children: React.ReactNode;
 }
@@ -17,11 +10,15 @@ const Slider: React.FC<SliderProps> = ({ children }) => {
   const [prevDisable, setPrevDisable] = useState(true);
   const [nextDisable, setNextDisable] = useState(false);
   const [isContentOverflowing, setIsContentOverflowing] = useState(false);
+  const [isTouchDevice, setIsTouchDevice] = useState(false);
 
   useEffect(() => {
     if (sliderRef.current) {
       const { scrollLeft } = sliderRef.current;
       checkButtons(scrollLeft);
+    }
+    if (typeof window !== 'undefined') {
+      setIsTouchDevice('ontouchstart' in window || navigator.maxTouchPoints > 0)
     }
   }, []);
 
