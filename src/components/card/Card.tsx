@@ -30,12 +30,11 @@ const CardComponent: React.FC<CardProps> = ({ partKey, options }) => {
 
   useEffect(() => {
     const handleResize = () => {
-      setIsMobile(window.innerWidth <= 768);
+      setIsMobile('ontouchstart' in window || navigator.maxTouchPoints > 0);
     };
 
-    handleResize(); // Initial check
+    handleResize();
     window.addEventListener('resize', handleResize);
-
     return () => {
       window.removeEventListener('resize', handleResize);
     };
@@ -59,7 +58,9 @@ const CardComponent: React.FC<CardProps> = ({ partKey, options }) => {
   return (
     <div className={styles.container} role="group" aria-label="Part Options">
       {isMobile ? (
-        renderCardItems()
+        <div className={styles.flex} role="presentation">
+          {renderCardItems()}
+        </div>
       ) : (
         <Slider>
           <div className={styles.flex} role="presentation">

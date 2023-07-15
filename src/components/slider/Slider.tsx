@@ -10,14 +10,12 @@ const Slider: React.FC<SliderProps> = ({ children }) => {
   const [prevDisable, setPrevDisable] = useState(true);
   const [nextDisable, setNextDisable] = useState(false);
   const [isContentOverflowing, setIsContentOverflowing] = useState(false);
-  const [isTouchDevice, setIsTouchDevice] = useState(false);
 
   useEffect(() => {
     if (sliderRef.current) {
       const { scrollLeft } = sliderRef.current;
       checkButtons(scrollLeft);
     }
-    setIsTouchDevice('ontouchstart' in window || navigator.maxTouchPoints > 0);
   }, []);
 
   useEffect(() => {
@@ -53,24 +51,6 @@ const Slider: React.FC<SliderProps> = ({ children }) => {
     }
   };
 
-  const prevButtonEventHandlers = isTouchDevice
-    ? {
-      onTouchStart: handlePrevClick,
-      onTouchEnd: () => { },
-    }
-    : {
-      onClick: handlePrevClick,
-    };
-
-  const nextButtonEventHandlers = isTouchDevice
-    ? {
-      onTouchStart: handleNextClick,
-      onTouchEnd: () => { },
-    }
-    : {
-      onClick: handleNextClick,
-    };
-
   return (
     <div className={styles.sliderContainer} ref={sliderRef}>
       <div className={styles.sliderWrapper} role="list" aria-label="Slider">
@@ -82,7 +62,7 @@ const Slider: React.FC<SliderProps> = ({ children }) => {
             className={`${styles.navigation} ${prevDisable ? styles.disable : ''}`}
             aria-label="Previous"
             aria-disabled={prevDisable}
-            {...prevButtonEventHandlers}
+            onClick={handlePrevClick}
           >
             &larr;
           </button>
@@ -90,7 +70,7 @@ const Slider: React.FC<SliderProps> = ({ children }) => {
             className={`${styles.navigation} ${nextDisable ? styles.disable : ''}`}
             aria-label="Next"
             aria-disabled={prevDisable}
-            {...nextButtonEventHandlers}
+            onClick={handleNextClick}
           >
             &rarr;
           </button>
