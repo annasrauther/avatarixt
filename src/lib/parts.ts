@@ -112,7 +112,7 @@ const partMap: partMapProps = {
         id: 'graphic-none',
         label: 'None',
         value: 'none',
-        image: 'parts/graphic-none.svg',
+        image: 'parts/none.svg',
       },
       {
         id: 'graphic-redwood',
@@ -154,7 +154,7 @@ const partMap: partMapProps = {
         id: 'hair-none',
         label: 'None',
         value: 'none',
-        image: 'parts/hair-none.svg',
+        image: 'parts/none.svg',
       },
       {
         id: 'hair-long',
@@ -224,7 +224,7 @@ const partMap: partMapProps = {
         id: 'facialHair-none',
         label: 'None',
         value: 'none',
-        image: 'parts/facialHair-none.svg',
+        image: 'parts/none.svg',
       },
       {
         id: 'facialHair-stubble',
@@ -424,7 +424,7 @@ const partMap: partMapProps = {
         id: 'accessory-none',
         label: 'None',
         value: 'none',
-        image: 'parts/accessory-none.svg',
+        image: 'parts/none.svg',
       },
       {
         id: 'accessory-roundGlasses',
@@ -454,7 +454,7 @@ const partMap: partMapProps = {
         id: 'hat-none',
         label: 'None',
         value: 'none',
-        image: 'parts/hat-none.svg',
+        image: 'parts/none.svg',
       },
       {
         id: 'hat-beanie',
