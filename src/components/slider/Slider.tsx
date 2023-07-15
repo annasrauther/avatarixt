@@ -1,13 +1,6 @@
 import { useRef, useEffect, useState } from 'react';
 import styles from './Slider.module.css';
 
-
-let isTouchDevice = false;
-
-if (typeof window !== 'undefined') {
-  isTouchDevice = 'ontouchstart' in window || navigator.maxTouchPoints > 0;
-}
-
 interface SliderProps {
   children: React.ReactNode;
 }
@@ -17,12 +10,14 @@ const Slider: React.FC<SliderProps> = ({ children }) => {
   const [prevDisable, setPrevDisable] = useState(true);
   const [nextDisable, setNextDisable] = useState(false);
   const [isContentOverflowing, setIsContentOverflowing] = useState(false);
+  const [isTouchDevice, setIsTouchDevice] = useState(false);
 
   useEffect(() => {
     if (sliderRef.current) {
       const { scrollLeft } = sliderRef.current;
       checkButtons(scrollLeft);
     }
+    setIsTouchDevice('ontouchstart' in window || navigator.maxTouchPoints > 0);
   }, []);
 
   useEffect(() => {
@@ -50,7 +45,6 @@ const Slider: React.FC<SliderProps> = ({ children }) => {
     }
   };
 
-
   const checkButtons = (scrollLeft: number) => {
     if (sliderRef.current) {
       const { offsetWidth, scrollWidth } = sliderRef.current;
@@ -77,15 +71,16 @@ const Slider: React.FC<SliderProps> = ({ children }) => {
       onClick: handleNextClick,
     };
 
-
   return (
     <div className={styles.sliderContainer} ref={sliderRef}>
-      <div className={styles.sliderWrapper} role="list" aria-label='Slider'>{children}</div>
+      <div className={styles.sliderWrapper} role="list" aria-label="Slider">
+        {children}
+      </div>
       {isContentOverflowing && (
         <div className={styles['navigation-wrapper']}>
           <button
             className={`${styles.navigation} ${prevDisable ? styles.disable : ''}`}
-            aria-label='Previous'
+            aria-label="Previous"
             aria-disabled={prevDisable}
             {...prevButtonEventHandlers}
           >
@@ -93,7 +88,7 @@ const Slider: React.FC<SliderProps> = ({ children }) => {
           </button>
           <button
             className={`${styles.navigation} ${nextDisable ? styles.disable : ''}`}
-            aria-label='Next'
+            aria-label="Next"
             aria-disabled={prevDisable}
             {...nextButtonEventHandlers}
           >
