@@ -1,7 +1,12 @@
 import { useRef, useEffect, useState } from 'react';
 import styles from './Slider.module.css';
 
-const isTouchDevice = 'ontouchstart' in window || navigator.maxTouchPoints > 0;
+
+let isTouchDevice = false;
+
+if (typeof window !== 'undefined') {
+  isTouchDevice = 'ontouchstart' in window || navigator.maxTouchPoints > 0;
+}
 
 interface SliderProps {
   children: React.ReactNode;
