@@ -3,7 +3,7 @@
   flex-wrap: wrap;
   align-items: center;
   justify-content: flex-start;
-  margin: 10px 0 0;
+  margin: 10px 0;
   background: white;
   padding: 5px;
 }
@@ -20,13 +20,13 @@
 .colorOption {
   position: relative;
   transition: all 0.1s;
-  margin-right: 1em;
+  margin: 8px;
   border: 1px solid transparent;
   border-radius: 100%;
   box-shadow: 2px 2px rgba(0, 0, 0, 0.4);
   cursor: pointer;
-  width: 45px;
-  height: 45px;
+  width: 40px;
+  height: 40px;
 }
 
 .colorOption.selected {
