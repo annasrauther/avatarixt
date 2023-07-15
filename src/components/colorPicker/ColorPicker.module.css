@@ -2,11 +2,8 @@
   display: flex;
   flex-wrap: wrap;
   align-items: center;
-  justify-content: center;
-  margin: 10px 5px;
-  border: 2px solid #aaa;
-  border-radius: 5px;
-  box-shadow: 3px 3px 1px rgb(0 0 0 / 40%);
+  justify-content: flex-start;
+  margin: 10px 0 0;
   background: white;
   padding: 5px;
 }
@@ -16,25 +13,24 @@
   margin: 0;
   margin-left: 5px;
   text-transform: uppercase;
-  letter-spacing: 1px;
   font-size: 1.2em;
-  font-weight: 900;
+  font-weight: 700;
 }
 
 .colorOption {
   position: relative;
   transition: all 0.1s;
-  margin: 8px;
+  margin-right: 1em;
   border: 1px solid transparent;
-  border-radius: 5px;
+  border-radius: 100%;
   box-shadow: 2px 2px rgba(0, 0, 0, 0.4);
   cursor: pointer;
-  width: 40px;
-  height: 40px;
+  width: 45px;
+  height: 45px;
 }
 
 .colorOption.selected {
-  transform: scale(1.1);
+  transform: scale(1.2);
   border: 1px solid rgb(0 0 0 / 80%);
 }
 

@@ -234,7 +234,7 @@ const partMap: partMapProps = {
       },
       {
         id: 'facialHair-mediumBeard',
-        label: 'Medium Beard',
+        label: 'Beard',
         value: 'mediumBeard',
         image: 'parts/facialHair-mediumBeard.svg',
       },
@@ -260,7 +260,7 @@ const partMap: partMapProps = {
       },
       {
         id: 'eyes-leftTwitch',
-        label: 'Left Twitch',
+        label: 'Twitch',
         value: 'leftTwitch',
         image: 'parts/eyes-leftTwitch.svg',
       },
@@ -320,7 +320,7 @@ const partMap: partMapProps = {
       },
       {
         id: 'eyebrows-leftLowered',
-        label: 'Left Lowered',
+        label: 'Lowered',
         value: 'leftLowered',
         image: 'parts/eyebrows-leftLowered.svg',
       },
@@ -338,7 +338,7 @@ const partMap: partMapProps = {
       },
       {
         id: 'eyebrows-concerned',
-        label: 'Concerned',
+        label: 'Worried',
         value: 'concerned',
         image: 'parts/eyebrows-concerned.svg',
       },
@@ -362,7 +362,7 @@ const partMap: partMapProps = {
       },
       {
         id: 'mouth-openSmile',
-        label: 'Open Smile',
+        label: 'Smile',
         value: 'openSmile',
         image: 'parts/mouth-openSmile.svg',
       },
@@ -428,13 +428,13 @@ const partMap: partMapProps = {
       },
       {
         id: 'accessory-roundGlasses',
-        label: 'Round Glasses',
+        label: 'Glasses',
         value: 'roundGlasses',
         image: 'parts/accessory-roundGlasses.svg',
       },
       {
         id: 'accessory-tinyGlasses',
-        label: 'Tiny Glasses',
+        label: 'Eyewear',
         value: 'tinyGlasses',
         image: 'parts/accessory-tinyGlasses.svg',
       },
