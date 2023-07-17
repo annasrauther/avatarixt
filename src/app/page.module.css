@@ -1,5 +1,6 @@
-.grid {
-  @media screen and (min-width: 768px) {
+/* Media query for screens with minimum width of 768px */
+@media screen and (min-width: 768px) {
+  .grid {
     display: grid;
     grid-template-columns: 1fr 1fr;
     height: calc(100vh - 110px);

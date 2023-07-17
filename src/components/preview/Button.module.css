@@ -1,5 +1,7 @@
 .button:hover {
   color: black;
+  border-color: black;
+  box-shadow: 3px 3px 1px rgb(0 0 0 / 80%);
 }
 
 .button:active {
