@@ -12,9 +12,10 @@ export interface ColorPickerProps {
     value: string;
     hex: string;
   }[];
+  display: boolean;
 }
 
-const ColorPicker: React.FC<ColorPickerProps> = ({ partKey, label, value, colors }) => {
+const ColorPicker: React.FC<ColorPickerProps> = ({ partKey, label, value, colors, display }) => {
   const { updateOption } = useContext<OptionsContextType>(OptionsContextNonNull);
   const [selectedColor, setSelectedColor] = useState('');
 
@@ -32,7 +33,7 @@ const ColorPicker: React.FC<ColorPickerProps> = ({ partKey, label, value, colors
 
   return (
     <>
-      <h4 className={styles.label}>{label} <span className={styles.colorHex}>{selectedColor}</span></h4>
+      <h4 className={styles.label}>{label} {display ? <span className={styles.colorHex} style={{ background: selectedColor, color: selectedColor === '#FFFFFF' ? 'black' : 'white' }}>{selectedColor}</span> : null}</h4>
       <div className={styles.container}>
         {colors.map((color) => (
           <button

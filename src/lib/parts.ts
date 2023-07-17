@@ -1,4 +1,4 @@
-import { color } from './theme';
+import { color } from './colors';
 
 interface partMapProps {
   [key: string]: {

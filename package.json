@@ -40,6 +40,7 @@
     "prettier": "^2.8.8"
   },
   "browserslist": [
-    "cover 99.5%"
+    "cover 99.5%",
+    "safari >= 14"
   ]
 }

@@ -22,7 +22,7 @@
 }
 
 .card img {
-  transition: all 0.3s;
+  transition: all 0.1s;
   border: 2px solid #aaa;
   border-radius: 5px;
   box-shadow: 3px 3px 1px rgb(0 0 0 / 40%);
@@ -32,10 +32,15 @@
   height: 60px;
 }
 
-.card:hover img,
+.card:hover img {
+  border-color: black;
+  box-shadow: 3px 3px 1px rgb(0 0 0 / 60%);
+}
+
 .card img.active {
   border: 2px solid black;
-  box-shadow: 2px 2px 1px rgb(0 0 0 / 80%);
+  box-shadow: 3px 3px 1px rgb(0 0 0 / 80%);
+  transform: scale(0.95);
 }
 
 .card span {

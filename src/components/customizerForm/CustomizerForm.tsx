@@ -56,6 +56,7 @@ const CustomizerForm: React.FC<CustomizerFormProps> = ({ partMap }) => {
                     value={componentOptions}
                     colors={partOptions}
                     aria-label={label}
+                    display={display}
                   />
                 </div>
               </div>
