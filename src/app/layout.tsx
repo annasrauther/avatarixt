@@ -2,13 +2,21 @@ import 'normalize.css';
 import styles from './globals.module.css';
 
 import { Montserrat } from 'next/font/google';
-
 const mont = Montserrat({ subsets: ['latin'] });
 
 export const metadata = {
   title: 'Avatarixt',
   description: 'Generate Random Avatars, powered by Bigheads.io',
   manifest: '/manifest.webmanifest',
+  openGraph: {
+    type: 'website',
+    locale: 'en_IE',
+    url: 'https://avatarixt.vercel.app/',
+    title: 'Avatarixt',
+    description: 'Generate Random Avatars, powered by Bigheads.io',
+    site_name: 'Avatarixt',
+    image: 'https://avatarixt.vercel.app/og.png',
+  },
 };
 
 export default function RootLayout({
