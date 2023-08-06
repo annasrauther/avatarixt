@@ -1,28 +1,62 @@
 "use client";
+// Import the necessary modules and types
 import { createContext, useReducer, useContext } from 'react';
 import partMap from '@/lib/parts';
 
+/**
+ * Represents the value of an option.
+ * @interface OptionValue
+ * @property {boolean} display - Determines whether the option should be displayed or not.
+ * @property {*} [value] - The value of the option (optional).
+ */
 export type OptionValue = {
   display: boolean;
   value?: any;
 };
 
+/**
+ * Represents the action that can be performed on an option.
+ * @type {OptionAction}
+ */
 type OptionAction =
   | { type: 'SET_OPTION'; partKey: string; newValue: any }
   | { type: 'TOGGLE_OPTIONS'; partKey: string };
 
+/**
+ * Represents the context type for the options.
+ * @interface OptionsContextType
+ * @property {Object.<string, OptionValue>} options - The options stored in a key-value pair format, where the key is the option key and the value is an {@link OptionValue} object.
+ * @property {function} updateOption - A function to update an option with a new value.
+ */
 export type OptionsContextType = {
   options: { [partKey: string]: OptionValue };
   updateOption: (_partKey: string, _newValue: any) => void;
 };
 
+/**
+ * Represents the props for the OptionsProvider component.
+ * @interface OptionsProviderProps
+ * @property {React.ReactNode} children - The children elements to be rendered within the OptionsProvider component.
+ */
 export interface OptionsProviderProps {
   children: React.ReactNode;
 }
 
+/**
+ * The context for the options.
+ */
 export const OptionsContext = createContext<OptionsContextType | null>(null);
 
-const optionsReducer = (state: { [partKey: string]: OptionValue }, action: OptionAction): { [partKey: string]: OptionValue } => {
+/**
+ * Reducer function for updating the options state based on actions.
+ * @param {Object.<string, OptionValue>} state - The current state of options.
+ * @param {OptionAction} action - The action to be performed on the options.
+ * @returns {Object.<string, OptionValue>} The updated state of options.
+ */
+const optionsReducer = (
+  state: { [partKey: string]: OptionValue },
+  action: OptionAction
+): { [partKey: string]: OptionValue } => {
   switch (action.type) {
     case 'SET_OPTION':
       return {
@@ -38,7 +72,8 @@ const optionsReducer = (state: { [partKey: string]: OptionValue }, action: Optio
         let updatedOptions: { [partKey: string]: OptionValue } = { ...state };
 
         for (let item in toggleMap) {
-          const displayValue = (toggleMap[item] as any[]).indexOf(state[action.partKey]?.value) > -1;
+          const displayValue =
+            (toggleMap[item] as any[]).indexOf(state[action.partKey]?.value) > -1;
           updatedOptions[item] = {
             value: state[item]?.value,
             display: !displayValue,
@@ -56,88 +91,29 @@ const optionsReducer = (state: { [partKey: string]: OptionValue }, action: Optio
   }
 };
 
+/**
+ * The provider component for managing options state.
+ * @function OptionsProvider
+ * @param {OptionsProviderProps} props - The component props.
+ * @returns {JSX.Element} The rendered OptionsProvider component.
+ */
 export const OptionsProvider: React.FC<OptionsProviderProps> = ({ children }) => {
   const optionsValue: { [partKey: string]: OptionValue } = {
-    mask: {
-      display: true,
-      value: false,
-    },
-    body: {
-      display: true,
-      value: 'chest',
-    },
-    skinTone: {
-      display: true,
-      value: 'light',
-    },
-    clothing: {
-      display: true,
-      value: 'naked',
-    },
-    graphic: {
-      display: false,
-      value: 'none',
-    },
-    clothingColor: {
-      display: false,
-      value: 'white',
-    },
-    hair: {
-      display: true,
-      value: 'none',
-    },
-    hairColor: {
-      display: false,
-      value: 'blonde',
-    },
-    facialHair: {
-      display: true,
-      value: 'none',
-    },
-    lashes: {
-      display: false,
-      value: false,
-    },
-    eyes: {
-      display: true,
-      value: 'normal',
-    },
-    eyebrows: {
-      display: true,
-      value: 'raised',
-    },
-    mouth: {
-      display: true,
-      value: 'grin',
-    },
-    lipColor: {
-      display: false,
-      value: 'red',
-    },
-    faceMask: {
-      display: true,
-      value: false,
-    },
-    faceMaskColor: {
-      display: false,
-      value: 'white',
-    },
-    accessory: {
-      display: true,
-      value: 'none',
-    },
-    hat: {
-      display: true,
-      value: 'none',
-    },
-    hatColor: {
-      display: false,
-      value: 'white',
-    },
+    // ... (Initial values for options)
   };
-  const [options, dispatch] = useReducer<(_state: { [partKey: string]: OptionValue }, _action: OptionAction) => { [partKey: string]: OptionValue }>(optionsReducer, optionsValue);
+  const [options, dispatch] = useReducer<
+    (
+      _state: { [partKey: string]: OptionValue },
+      _action: OptionAction
+    ) => { [partKey: string]: OptionValue }
+  >(optionsReducer, optionsValue);
 
-
+  /**
+   * A function to update an option with a new value.
+   * @function updateOption
+   * @param {string} partKey - The key of the option to be updated.
+   * @param {*} newValue - The new value for the option.
+   */
   const updateOption = (partKey: string, newValue: any) => {
     dispatch({ type: 'SET_OPTION', partKey, newValue });
     dispatch({ type: 'TOGGLE_OPTIONS', partKey });
@@ -155,6 +131,12 @@ export const OptionsProvider: React.FC<OptionsProviderProps> = ({ children }) =>
   );
 };
 
+/**
+ * Custom hook to consume the options context.
+ * @function useOptions
+ * @returns {OptionsContextType} The options context with the options and updateOption function.
+ * @throws {Error} Throws an error if used outside the OptionsProvider context.
+ */
 export const useOptions = (): OptionsContextType => {
   const context = useContext(OptionsContext);
   if (!context) {

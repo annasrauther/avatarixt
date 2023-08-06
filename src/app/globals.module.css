@@ -1,3 +1,7 @@
+/**
+ * Represents the styles for the body element.
+ * @class body
+ */
 .app {
   margin: 0;
   background-color: white;
@@ -5,6 +9,10 @@
   user-select: none;
 }
 
+/**
+ * Represents the styles for the logo element.
+ * @class logo
+ */
 .logo {
   margin: 0;
   padding: 10px 0 0px;
@@ -15,6 +23,10 @@
   letter-spacing: 5px;
 }
 
+/**
+ * Represents the styles for the title element.
+ * @class title
+ */
 .title {
   margin: 0;
   border-bottom: 1px solid #dddddd;
@@ -26,11 +38,19 @@
   font-weight: 400;
 }
 
+/**
+ * Represents the styles for the footer element.
+ * @class footer
+ */
 .footer {
   border-top: 1px solid lightgray;
   text-align: center;
 }
 
+/**
+ * Represents the styles for the paragraphs within the footer.
+ * @class footer-p
+ */
 .footer p {
   padding: 10px 0;
   margin: 0;

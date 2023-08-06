@@ -1,42 +1,64 @@
+import { Metadata } from 'next';
+
+// Import the font for the website.
+import { Montserrat } from 'next/font/google';
+
+// Import the global styles.
 import 'normalize.css';
 import styles from './globals.module.css';
 
-import { Montserrat } from 'next/font/google';
+/**
+ * Font options for Montserrat.
+ */
 const mont = Montserrat({ subsets: ['latin'] });
 
-export const metadata = {
-  title: 'Avatarixt',
-  description: 'Generate Random Avatars, powered by Bigheads.io',
+/**
+ * Metadata for the website.
+ */
+const title = 'Avatarixt';
+const description = 'Generate Random Avatars, powered by Bigheads.io';
+export const metadata: Metadata = {
+  title: title,
+  description: description,
   manifest: '/manifest.webmanifest',
   openGraph: {
     type: 'website',
     locale: 'en_IE',
     url: 'https://avatarixt.vercel.app/',
-    title: 'Avatarixt',
-    description: 'Generate Random Avatars, powered by Bigheads.io',
-    site_name: 'Avatarixt',
-    image: 'https://avatarixt.vercel.app/og.png',
+    title: title,
+    description: description,
+    images: 'https://avatarixt.vercel.app/og.png',
   },
 };
 
-export default function RootLayout({
-  children,
-}: {
+/**
+ * The RootLayout Props.
+ * @interface RootLayoutProps
+ * @property {React.ReactNode} children The children to render.
+ */
+interface RootLayoutProps {
   children: React.ReactNode;
-}) {
+}
+
+/**
+ * The Root Layout component for the website.
+ * @component
+ * @param {RootLayoutProps} props - The component props.
+ * @returns {React.JSX.Element} The rendered RootLayout component.
+ */
+export default function RootLayout({ children }: RootLayoutProps): React.JSX.Element {
   return (
     <html lang="en" suppressHydrationWarning>
       <body role="application" className={`${mont.className} ${styles.app}`}>
         <header>
-          <h1 className={styles.logo}>{metadata.title}</h1>
+          <h1 className={styles.logo}>{title}</h1>
           <h2 className={styles.title}>Customize Your Avatar</h2>
         </header>
         <main>{children}</main>
         <footer className={styles.footer}>
-          <p>{metadata.description}</p>
+          <p>{description}</p>
         </footer>
       </body>
     </html>
-
   );
 }

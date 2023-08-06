@@ -1,12 +1,12 @@
 .button:hover {
-  color: black;
   border-color: black;
   box-shadow: 3px 3px 1px rgb(0 0 0 / 80%);
+  color: black;
 }
 
 .button:active {
-  box-shadow: 1px 1px 1px rgb(0 0 0 / 80%);
   transform: scale(0.95);
+  box-shadow: 1px 1px 1px rgb(0 0 0 / 80%);
 }
 
 .button {

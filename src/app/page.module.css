@@ -1,9 +1,11 @@
-/* Media query for screens with minimum width of 768px */
 @media screen and (min-width: 768px) {
+
+  /* Styles for the grid container */
   .grid {
     display: grid;
     grid-template-columns: 1fr 1fr;
     height: calc(100vh - 110px);
     overflow: hidden;
   }
+
 }
