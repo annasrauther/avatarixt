@@ -3,7 +3,7 @@ import { Metadata } from 'next';
 import { IBM_Plex_Sans_Condensed } from 'next/font/google';
 
 // Import the React Icons
-import { FcPortraitMode } from 'react-icons/fc';
+import { Gi3DGlasses } from 'react-icons/gi';
 
 // Import the global styles.
 import 'normalize.css';
@@ -65,7 +65,7 @@ export default function RootLayout({ children }: RootLayoutProps): React.JSX.Ele
     <html lang="en" suppressHydrationWarning>
       <body role="application" className={`${ibm_plex_sans_condensed.className} ${styles.app}`}>
         <header>
-          <h1 className={styles.logo}><FcPortraitMode /> {title}</h1>
+          <h1 className={styles.logo}><Gi3DGlasses /> {title}</h1>
           <h2 className={styles.title}>Customize Your Avatar</h2>
         </header>
         <main>{children}</main>
