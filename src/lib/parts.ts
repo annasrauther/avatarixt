@@ -1,22 +1,58 @@
 import { color } from './colors';
 
+/**
+ * Represents the options for a single part of the avatar customizer.
+ * @typedef {Object} PartOptions
+ * @property {string} id - The unique ID of the option.
+ * @property {string} [label] - The label to display for the option.
+ * @property {string | boolean} value - The value of the option, can be a string or a boolean.
+ * @property {string} [image] - The path to the image representing the option.
+ * @property {string} [hex] - The hexadecimal color value representing the option.
+ */
+interface PartOptions {
+  id: string;
+  label?: string;
+  value: string | boolean;
+  image?: string;
+  hex?: string;
+}
+
+/**
+ * Represents the disables options for a part of the avatar customizer.
+ * @typedef {Object.<string, string[] | boolean[]>} DisableOptions
+ * @property {string[]} [clothingColor] - The clothing color options to disable based on this part.
+ * @property {string[]} [graphic] - The graphic options to disable based on this part.
+ * @property {string[]} [hairColor] - The hair color options to disable based on this part.
+ * @property {string[]} [hat] - The hat options to disable based on this part.
+ * @property {string[]} [hatColor] - The hat color options to disable based on this part.
+ * @property {string[]} [lipColor] - The lip color options to disable based on this part.
+ * @property {string[]} [faceMaskColor] - The face mask color options to disable based on this part.
+ */
+interface DisableOptions {
+  [key: string]: string[] | boolean[];
+}
+
+/**
+ * Represents the different parts of the avatar and their options in the customizer.
+ * @typedef {Object.<string, { label: string, component: string, options: PartOptions[], disables?: DisableOptions }>} PartMapProps
+ * @property {string} label - The label to display for the part.
+ * @property {string} component - The component to use for the part.
+ * @property {PartOptions[]} options - The options for the part.
+ * @property {DisableOptions} [disables] - The options to disable based on this part.
+ */
 interface partMapProps {
   [key: string]: {
     label: string;
     component: string;
-    options: {
-      id: string;
-      label?: string;
-      value: string | boolean;
-      image?: string;
-      hex?: string;
-    }[];
-    disables?: {
-      [key: string]: string[] | boolean[];
-    };
+    options: PartOptions[];
+    disables?: DisableOptions;
   };
 }
 
+/**
+ * The `partMap` object contains information about different parts of the avatar and their options in the customizer.
+ * @type {PartMapProps}
+ */
 const partMap: partMapProps = {
   mask: {
     label: 'Background',

@@ -38,9 +38,9 @@
 }
 
 .card img.active {
+  transform: scale(0.95);
   border: 2px solid black;
   box-shadow: 3px 3px 1px rgb(0 0 0 / 80%);
-  transform: scale(0.95);
 }
 
 .card span {

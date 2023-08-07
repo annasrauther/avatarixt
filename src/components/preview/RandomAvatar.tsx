@@ -1,10 +1,32 @@
 import { useOptions } from '@/context/optionsContext';
 import partMap from '@/lib/parts';
+import { FaRandom } from 'react-icons/fa';
+
+// Import styles
 import styles from './Button.module.css';
 
-const RandomAvatar = () => {
+/**
+ * Represents the Random Avatar Button.
+ *
+ * The `RandomAvatar` component displays a button that, when clicked, randomizes the avatar by updating the selected options
+ * with random values from the available options.
+ *  
+ * @component
+ * @returns {React.FC} The Random Avatar Button component.
+ */
+const RandomAvatar: React.FC = () => {
+  // Context and options destructuring
   const { options, updateOption } = useOptions();
 
+  /**
+   * Handles the randomization of the avatar.
+   *
+   * This function selects random values for each part of the avatar from the available options and updates the `options` state
+   * with the new values using the `updateOption` function from the `OptionsContext`.
+   *
+   * @function
+   * @returns {void}
+   */
   const handleRandomize = () => {
     const updatedOptions = { ...options };
 
@@ -19,14 +41,16 @@ const RandomAvatar = () => {
     }
   };
 
+  // Renders the Random Avatar button
   return (
     <button
       type="button"
       title="Randomize Avatar"
       className={styles.button}
       onClick={handleRandomize}
+      aria-label="Randomize Avatar"
     >
-      Random
+      <span>Random</span> <FaRandom />
     </button>
   );
 };

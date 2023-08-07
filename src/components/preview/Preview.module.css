@@ -25,7 +25,7 @@
   box-shadow: 4px 4px 1px rgb(0 0 0 / 20%);
 }
 
-.previewContainer svg {
+.previewWrapper svg {
   display: block;
   margin: 0 auto 10px;
   max-width: clamp(200px, 50vw, 500px);
