@@ -25,6 +25,7 @@ export interface CardOption {
   label: string;
   value: string;
   image: string;
+  display: boolean;
 }
 
 /**
@@ -36,6 +37,7 @@ export interface CardOption {
 interface CardProps {
   partKey: string;
   options: CardOption[];
+  display: boolean;
 }
 
 /**
@@ -49,7 +51,7 @@ interface CardProps {
  * @example
  * <Card partKey="top" options={topOptions} />
  */
-const CardComponent: React.FC<CardProps> = ({ partKey, options }) => {
+const CardComponent: React.FC<CardProps> = ({ partKey, options, display }) => {
   // Get the options and updateOption function from the OptionsContext
   const { options: contextOptions, updateOption } = useContext<OptionsContextType>(OptionsContextNonNull);
   const value = contextOptions[partKey].value;
@@ -87,6 +89,7 @@ const CardComponent: React.FC<CardProps> = ({ partKey, options }) => {
           isActive={isActive}
           onClick={() => handleCardChange(option.value)}
           ariaLabel={option.label}
+          display={display}
         />
       );
     });
@@ -100,7 +103,7 @@ const CardComponent: React.FC<CardProps> = ({ partKey, options }) => {
           {renderCardItems()}
         </div>
       ) : (
-        <Slider>
+        <Slider display={display}>
           <div className={styles.flex} role="presentation">
             {renderCardItems()}
           </div>

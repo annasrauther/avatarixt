@@ -38,7 +38,7 @@ export interface ColorPickerProps {
  * @param {ColorPickerProps} props - The component props.
  * @returns {React.FC} The ColorPicker component.
  */
-const ColorPicker: React.FC<ColorPickerProps> = ({ partKey, label, value, colors }) => {
+const ColorPicker: React.FC<ColorPickerProps> = ({ partKey, label, value, colors, display }) => {
   // Get the updateOption function from the OptionsContext
   const { updateOption } = useContext<OptionsContextType>(OptionsContextNonNull);
 
@@ -60,6 +60,8 @@ const ColorPicker: React.FC<ColorPickerProps> = ({ partKey, label, value, colors
             onClick={() => handleColorChange(color.value)}
             aria-pressed={value === color.value}
             aria-label={`${color.value} Color`}
+            aria-disabled={!display}
+            tabIndex={display ? 0 : -1}
           />
         ))}
       </div>

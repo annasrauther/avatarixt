@@ -70,6 +70,7 @@ const CustomizerForm: React.FC<CustomizerFormProps> = ({ partMap }) => {
                     value={componentOptions}
                     onChange={(newValue: boolean) => updateSwitchOption(partKey, newValue)}
                     ariaLabel={label}
+                    display={display}
                   />
                 </div>
               </div>
@@ -98,6 +99,7 @@ const CustomizerForm: React.FC<CustomizerFormProps> = ({ partMap }) => {
                     partKey={partKey}
                     options={partOptions as CardOption[]}
                     aria-label={label}
+                    display={display}
                   />
                 </div>
               </div>

@@ -15,6 +15,7 @@ export interface SwitchPillProps {
   value: boolean;
   onChange: (_newValue: boolean) => void;
   ariaLabel: string;
+  display: boolean;
 }
 
 /**
@@ -28,7 +29,7 @@ export interface SwitchPillProps {
  * @example
  * <SwitchPill value={value} onChange={onChange} ariaLabel={ariaLabel} />
  */
-const SwitchPill: React.FC<SwitchPillProps> = ({ value, onChange, ariaLabel }) => {
+const SwitchPill: React.FC<SwitchPillProps> = ({ value, onChange, ariaLabel, display }) => {
   // Define the handleChange function
   const handleChange = (event: ChangeEvent<HTMLInputElement>) => {
     const newValue = event.target.checked;
@@ -45,6 +46,9 @@ const SwitchPill: React.FC<SwitchPillProps> = ({ value, onChange, ariaLabel }) =
         onChange={handleChange}
         aria-checked={value}
         aria-label={ariaLabel}
+        aria-disabled={!display}
+        tabIndex={display ? 0 : -1}
+        disabled={!display}
       />
       <span className={styles.slider} />
     </label>

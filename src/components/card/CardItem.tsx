@@ -20,6 +20,7 @@ interface CardItemProps {
   isActive: boolean;
   onClick: () => void;
   ariaLabel: string;
+  display: boolean;
 }
 
 /**
@@ -33,7 +34,7 @@ interface CardItemProps {
  * @example
  * <CardItem option={option} isActive={isActive} onClick={handleCardChange} ariaLabel={ariaLabel} />
  */
-const CardItem: React.FC<CardItemProps> = ({ option, isActive, onClick, ariaLabel }) => {
+const CardItem: React.FC<CardItemProps> = ({ option, isActive, onClick, ariaLabel, display }) => {
   // Get the font weight
   const fontWeight = isActive ? '800' : '300';
 
@@ -44,6 +45,8 @@ const CardItem: React.FC<CardItemProps> = ({ option, isActive, onClick, ariaLabe
       onClick={onClick}
       aria-pressed={isActive}
       aria-label={ariaLabel}
+      aria-disabled={!display}
+      tabIndex={display ? 0 : -1}
     >
       <div className={styles.imageContainer}>
         <Image

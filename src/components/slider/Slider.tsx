@@ -1,5 +1,7 @@
 // Import dependencies
 import { useRef, useEffect, useState } from 'react';
+import { GrFormNextLink, GrFormPreviousLink } from 'react-icons/gr';
+
 
 // Import styles
 import styles from './Slider.module.css';
@@ -11,6 +13,7 @@ import styles from './Slider.module.css';
  */
 interface SliderProps {
   children: React.ReactNode;
+  display: boolean;
 }
 
 /**
@@ -24,7 +27,7 @@ interface SliderProps {
  * @example
  * <Slider>
  */
-const Slider: React.FC<SliderProps> = ({ children }) => {
+const Slider: React.FC<SliderProps> = ({ children, display }) => {
   // Create a ref for the slider
   const sliderRef = useRef<HTMLDivElement>(null);
 
@@ -89,18 +92,22 @@ const Slider: React.FC<SliderProps> = ({ children }) => {
           <button
             className={`${styles.navigation} ${prevDisable ? styles.disable : ''}`}
             aria-label="Previous"
-            aria-disabled={prevDisable}
+            aria-disabled={prevDisable && !display}
             onClick={handlePrevClick}
+            tabIndex={!prevDisable && display ? 0 : -1}
+            disabled={!display}
           >
-            &larr;
+            <GrFormPreviousLink />
           </button>
           <button
             className={`${styles.navigation} ${nextDisable ? styles.disable : ''}`}
             aria-label="Next"
-            aria-disabled={prevDisable}
+            aria-disabled={nextDisable && !display}
+            tabIndex={!nextDisable && display ? 0 : -1}
             onClick={handleNextClick}
+            disabled={!display}
           >
-            &rarr;
+            <GrFormNextLink />
           </button>
         </div>
       )}
