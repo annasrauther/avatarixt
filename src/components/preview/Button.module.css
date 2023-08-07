@@ -10,6 +10,9 @@
 }
 
 .button {
+  display: flex;
+  align-items: center;
+  justify-content: center;
   transition: all 0.1s;
   margin: 8px 0;
   border: 1.5px solid #ccc;
@@ -18,14 +21,13 @@
   background: white;
   background-color: white;
   cursor: pointer;
-  padding: 0;
-  width: 120px;
-  height: 40px;
+  padding: 10px 1em;
   text-align: center;
   text-transform: uppercase;
   color: dimgrey;
   font-size: 0.9em;
   font-weight: 800;
+  gap: 0.5em;
   -webkit-tap-highlight-color: transparent;
 }
 

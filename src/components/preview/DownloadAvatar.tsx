@@ -1,5 +1,5 @@
 import styles from './Button.module.css';
-
+import { FaDownload } from 'react-icons/fa';
 /**
  * Represents the Download Avatar Button props.
  * @interface DownloadAvatarProps
@@ -71,11 +71,12 @@ const DownloadAvatar: React.FC<DownloadAvatarProps> = ({ avatarRef }) => {
   return (
     <button
       type="button"
+      title="Download Avatar"
       className={styles.button}
       onClick={downloadFile}
       aria-label="Download Avatar"
     >
-      Download
+      <span>Download</span> <FaDownload />
     </button>
   );
 };

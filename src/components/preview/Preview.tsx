@@ -74,29 +74,31 @@ const Preview: React.FC = () => {
   return (
     <section className={`${styles.previewContainer} ${isSticky ? styles.sticky : ''}`}>
       {/* Avatar rendering */}
-      <BigHead
-        ref={avatarRef}
-        accessory={accessory?.value}
-        body={body?.value}
-        clothing={clothing?.value}
-        clothingColor={clothingColor?.value}
-        eyebrows={eyebrows?.value}
-        eyes={eyes?.value}
-        faceMask={faceMask?.value}
-        faceMaskColor={faceMaskColor?.value}
-        facialHair={facialHair?.value}
-        graphic={graphic?.value}
-        hair={hair?.value}
-        hairColor={hairColor?.value}
-        hat={hat?.value}
-        hatColor={hatColor?.value}
-        lashes={lashes?.value}
-        lipColor={lipColor?.value}
-        mask={mask?.value}
-        mouth={mouth?.value}
-        skinTone={skinTone?.value}
-        aria-label="Avatar Preview"
-      />
+      <div className={styles.previewWrapper}>
+        <BigHead
+          ref={avatarRef}
+          accessory={accessory?.value}
+          body={body?.value}
+          clothing={clothing?.value}
+          clothingColor={clothingColor?.value}
+          eyebrows={eyebrows?.value}
+          eyes={eyes?.value}
+          faceMask={faceMask?.value}
+          faceMaskColor={faceMaskColor?.value}
+          facialHair={facialHair?.value}
+          graphic={graphic?.value}
+          hair={hair?.value}
+          hairColor={hairColor?.value}
+          hat={hat?.value}
+          hatColor={hatColor?.value}
+          lashes={lashes?.value}
+          lipColor={lipColor?.value}
+          mask={mask?.value}
+          mouth={mouth?.value}
+          skinTone={skinTone?.value}
+          aria-label="Avatar Preview"
+        />
+      </div>
       {/* Actions */}
       <div className={styles.actions}>
         {/* Randomize avatar button */}

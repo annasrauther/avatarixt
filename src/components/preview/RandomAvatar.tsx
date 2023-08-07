@@ -1,5 +1,8 @@
 import { useOptions } from '@/context/optionsContext';
 import partMap from '@/lib/parts';
+import { FaRandom } from 'react-icons/fa';
+
+// Import styles
 import styles from './Button.module.css';
 
 /**
@@ -45,8 +48,9 @@ const RandomAvatar: React.FC = () => {
       title="Randomize Avatar"
       className={styles.button}
       onClick={handleRandomize}
+      aria-label="Randomize Avatar"
     >
-      Random
+      <span>Random</span> <FaRandom />
     </button>
   );
 };

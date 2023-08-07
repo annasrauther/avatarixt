@@ -1,0 +1,11 @@
+/* Footer.module.css */
+.footer {
+  border-top: 1px solid lightgray;
+  text-align: center;
+}
+
+.footer p {
+  margin: 0;
+  padding: 10px 0;
+  font-size: 0.8em;
+}

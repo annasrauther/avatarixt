@@ -1,16 +1,30 @@
 import { Metadata } from 'next';
+// Import the font from Google Fonts
+import { IBM_Plex_Sans_Condensed } from 'next/font/google';
 
-// Import the font for the website.
-import { Montserrat } from 'next/font/google';
+// Import the React Icons
+import { FcPortraitMode } from 'react-icons/fc';
 
 // Import the global styles.
 import 'normalize.css';
 import styles from './globals.module.css';
+import Footer from '@/components/footer/Footer';
 
 /**
- * Font options for Montserrat.
+ * Font options for IBM Plex Sans Condensed.
  */
-const mont = Montserrat({ subsets: ['latin'] });
+const ibm_plex_sans_condensed = IBM_Plex_Sans_Condensed({
+  subsets: ['latin'],
+  weight: [
+    '100',
+    '200',
+    '300',
+    '400',
+    '500',
+    '600',
+    '700',
+  ],
+});
 
 /**
  * Metadata for the website.
@@ -49,15 +63,13 @@ interface RootLayoutProps {
 export default function RootLayout({ children }: RootLayoutProps): React.JSX.Element {
   return (
     <html lang="en" suppressHydrationWarning>
-      <body role="application" className={`${mont.className} ${styles.app}`}>
+      <body role="application" className={`${ibm_plex_sans_condensed.className} ${styles.app}`}>
         <header>
-          <h1 className={styles.logo}>{title}</h1>
+          <h1 className={styles.logo}><FcPortraitMode /> {title}</h1>
           <h2 className={styles.title}>Customize Your Avatar</h2>
         </header>
         <main>{children}</main>
-        <footer className={styles.footer}>
-          <p>{description}</p>
-        </footer>
+        <Footer description={description} githubLink={'https://github.com/annasrauther/avatarixt'} />
       </body>
     </html>
   );
