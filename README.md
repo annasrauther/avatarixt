@@ -1,6 +1,6 @@
 # Avatarixt - Avatar Customization Web App
 
-Avatarixt is a web application that allows users to customize avatars by choosing various options for different parts, such as skin tone, hair style, clothing, accessories, and more. This project is a modified look of [Bigheads.io Editor](https://bigheads.io/editor/) and it uses the [Bigheads.io](https://github.com/RobertBroersma/bigheads) library for generating avatars.
+Avatarixt is a web application that allows users to customize avatars by choosing various options for different parts, such as skin tone, hair style, clothing, accessories, and more. This project is a modified look of <a href="https://bigheads.io/editor/" target="_blank">Bigheads.io Editor</a> and it uses the <a  href="https://github.com/RobertBroersma/bigheads" target="_blank">Bigheads.io</a> library for generating avatars.
 
 Avatarixt offers the following features:
 
@@ -21,7 +21,7 @@ Avatarixt is built using the following technologies:
 
 ## Demo
 
-Check out the live demo of Avatarixt: [https://avartarix.vercel.app](https://avartarix.vercel.app)
+Check out the live demo of Avatarixt: <a href="https://avatarixt.vercel.app" target="_blank">https://avatarixt.vercel.app</a>
 
 ## Installation
 
