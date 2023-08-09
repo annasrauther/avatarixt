@@ -80,4 +80,4 @@ To contribute:
 
 ## License
 
-Avatarix licensed under the GNU General Public License - see the [LICENSE](LICENSE) file for details.
+Avatarixt is licensed under the GNU General Public License - see the [LICENSE](LICENSE) file for details.
